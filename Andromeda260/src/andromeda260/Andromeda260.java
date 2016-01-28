@@ -5,6 +5,8 @@
  */
 package andromeda260;
 
+import byui.cit260.Andromeda.model.Player;
+
 /**
  *
  * @author rubengonzalezflores
@@ -15,7 +17,12 @@ public class Andromeda260 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Player playerOne = new Player();
+        
+        playerOne.setName("Fred Flintstone");
+        String playerInfo = playerOne.toString();
+        System.out.println(playerInfo);
+        
     }
     
 }
