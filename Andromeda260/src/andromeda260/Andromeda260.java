@@ -6,10 +6,13 @@
 package andromeda260;
 
 import byui.cit260.Andromeda.model.Enemy;
+import byui.cit260.Andromeda.model.Game;
 import byui.cit260.Andromeda.model.LogBook;
+import byui.cit260.Andromeda.model.Map;
+import byui.cit260.Andromeda.model.MaterialResources;
+import byui.cit260.Andromeda.model.Planet;
 import byui.cit260.Andromeda.model.Player;
 import byui.cit260.Andromeda.model.Ship;
-
 /**
  *
  * @author rubengonzalezflores
@@ -24,6 +27,12 @@ public class Andromeda260 {
         Ship ship1 = new Ship();
         LogBook logBookOne = new LogBook();
         Enemy deadPeople = new Enemy();
+        Game theGame = new Game();
+        Map theMap = new Map();
+        Planet currentPlanet = new Planet();
+        MaterialResources currentResources = new MaterialResources();
+        
+        
         
         playerOne.setName("Fred Flintstone");
         String playerInfo = playerOne.toString();
@@ -47,6 +56,7 @@ public class Andromeda260 {
         deadPeople.setArmor(13);
         String endOfDays = deadPeople.toString();
         System.out.println(endOfDays);
+        
         
         
     }
