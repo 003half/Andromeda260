@@ -23,7 +23,8 @@ public class MapControl {
             }
                     return distance;
         }
-     public double fuelNeeded(double pointA, double pointB, double armor, double iridium, double palladium, double platinum)     {
+     public double fuelNeeded(double pointA, double pointB, double armor, double iridium, double palladium, double platinum)
+         {
             double currentArmor = armor;
             double currentIridium = iridium;
             double currentPalladium = palladium;
@@ -61,12 +62,17 @@ public class MapControl {
             if (totalResources > 300) {
                     return -1;
             }
-
             double weightOfShip = currentArmor * currentArmor + totalResources +1;
             double fuelForTrip = weightOfShip * (distanceToTravel / 100);
             return fuelForTrip;
-        
-
-
+            }
+     
+     public double cylinderVolumeCalculator(double height, double radius)
+     {
+         if (height < 0 || radius < 0 || height > 100 || radius > 100) {
+             return -1;
+         }
+         double total = 3.14 * height * radius * radius;
+         return total;
      }
-}
+     }

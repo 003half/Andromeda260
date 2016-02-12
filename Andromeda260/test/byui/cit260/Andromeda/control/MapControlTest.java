@@ -6,9 +6,11 @@
 package byui.cit260.Andromeda.control;
 
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.BeforeClass;
 
 /**
  *
@@ -17,6 +19,14 @@ import static org.junit.Assert.*;
 public class MapControlTest {
     
     public MapControlTest() {
+    }
+
+    @BeforeClass
+    public static void setUpClass() throws Exception {
+    }
+
+    @AfterClass
+    public static void tearDownClass() throws Exception {
     }
     
     @Before
@@ -60,8 +70,7 @@ public class MapControlTest {
         double expResult = 76.5;
         double result = instance.fuelNeeded(pointA, pointB, armor, iridium, palladium, platinum);
         assertEquals(expResult, result, 0.0);
-        
-        
+       
     }
     
     @Test
@@ -77,7 +86,6 @@ public class MapControlTest {
         double expResult = -1;
         double result = instance.fuelNeeded(pointA, pointB, armor, iridium, palladium, platinum);
         assertEquals(expResult, result, 0.0);
-        
         
     }
     
@@ -95,7 +103,6 @@ public class MapControlTest {
         double result = instance.fuelNeeded(pointA, pointB, armor, iridium, palladium, platinum);
         assertEquals(expResult, result, 0.0);
         
-        
     }
     
     @Test
@@ -111,8 +118,7 @@ public class MapControlTest {
         double expResult = -1;
         double result = instance.fuelNeeded(pointA, pointB, armor, iridium, palladium, platinum);
         assertEquals(expResult, result, 0.0);
-        
-        
+      
     }
     
      @Test
@@ -128,8 +134,7 @@ public class MapControlTest {
         double expResult = -1;
         double result = instance.fuelNeeded(pointA, pointB, armor, iridium, palladium, platinum);
         assertEquals(expResult, result, 0.0);
-        
-        
+    
     }
     
      @Test
@@ -145,8 +150,7 @@ public class MapControlTest {
         double expResult = 326;
         double result = instance.fuelNeeded(pointA, pointB, armor, iridium, palladium, platinum);
         assertEquals(expResult, result, 0.0);
-        
-        
+      
     }
     
      @Test
@@ -162,8 +166,7 @@ public class MapControlTest {
         double expResult = 0;
         double result = instance.fuelNeeded(pointA, pointB, armor, iridium, palladium, platinum);
         assertEquals(expResult, result, 0.0);
-        
-        
+       
     }
      @Test
     public void testFuelNeeded7() {
@@ -179,6 +182,89 @@ public class MapControlTest {
         double result = instance.fuelNeeded(pointA, pointB, armor, iridium, palladium, platinum);
         assertEquals(expResult, result, 0.0);
         
-        
+    }
+
+    /**
+     * Test of cylinderVolumeCalculator method, of class MapControl.
+     */
+    @Test
+    public void testCylinderVolumeCalculator() {
+        System.out.println("cylinderVolumeCalculator");
+        double height = 35;
+        double radius = 5;
+        MapControl instance = new MapControl();
+        double expResult = 2747.5;
+        double result = instance.cylinderVolumeCalculator(height, radius);
+        assertEquals(expResult, result, 0.0);
+    }
+    @Test
+    public void testCylinderVolumeCalculator2() {
+        System.out.println("cylinderVolumeCalculator");
+        double height = -1;
+        double radius = 5;
+        MapControl instance = new MapControl();
+        double expResult = -1;
+        double result = instance.cylinderVolumeCalculator(height, radius);
+        assertEquals(expResult, result, 0.0);
+    }
+    @Test
+    public void testCylinderVolumeCalculator3() {
+        System.out.println("cylinderVolumeCalculator");
+        double height = 35;
+        double radius = -1;
+        MapControl instance = new MapControl();
+        double expResult = -1;
+        double result = instance.cylinderVolumeCalculator(height, radius);
+        assertEquals(expResult, result, 0.0);
+    }
+    @Test
+    public void testCylinderVolumeCalculator4() {
+        System.out.println("cylinderVolumeCalculator");
+        double height = 200;
+        double radius = 5;
+        MapControl instance = new MapControl();
+        double expResult = -1;
+        double result = instance.cylinderVolumeCalculator(height, radius);
+        assertEquals(expResult, result, 0.0);
+    }
+    @Test
+    public void testCylinderVolumeCalculator5() {
+        System.out.println("cylinderVolumeCalculator");
+        double height = 100;
+        double radius = 5;
+        MapControl instance = new MapControl();
+        double expResult = 7850;
+        double result = instance.cylinderVolumeCalculator(height, radius);
+        assertEquals(expResult, result, 0.0);
+    }
+    @Test
+    public void testCylinderVolumeCalculator6() {
+        System.out.println("cylinderVolumeCalculator");
+        double height = 35;
+        double radius = 100;
+        MapControl instance = new MapControl();
+        double expResult = 1099000;
+        double result = instance.cylinderVolumeCalculator(height, radius);
+        assertEquals(expResult, result, 0.0);
+    }
+    @Test
+    public void testCylinderVolumeCalculator7() {
+        System.out.println("cylinderVolumeCalculator");
+        double height = 1;
+        double radius = 5;
+        MapControl instance = new MapControl();
+        double expResult = 78.5;
+        double result = instance.cylinderVolumeCalculator(height, radius);
+        assertEquals(expResult, result, 0.0);
+    }
+    @Test
+    public void testCylinderVolumeCalculator8() {
+        System.out.println("cylinderVolumeCalculator");
+        double height = 35;
+        double radius = 1;
+        MapControl instance = new MapControl();
+        double expResult = 109.9;
+        double result = instance.cylinderVolumeCalculator(height, radius);
+        assertEquals(expResult, result, 0.0);
     }
 }
