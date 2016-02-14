@@ -267,4 +267,104 @@ public class MapControlTest {
         double result = instance.cylinderVolumeCalculator(height, radius);
         assertEquals(expResult, result, 0.0);
     }
+
+    /**
+     * Test of upgradedArmor method, of class MapControl.
+     */
+    @Test
+    public void testUpgradedArmor() {
+        System.out.println("upgradedArmor");
+        double iridium = 51;
+        double pallidium = 51;
+        double platinum = 51;
+        MapControl instance = new MapControl();
+        double expResult = 17;
+        double result = instance.upgradedArmor(iridium, pallidium, platinum);
+        assertEquals(expResult, result, 0.0);
+        
+    }
+     @Test
+    public void testUpgradedArmor2() {
+        System.out.println("upgradedArmor");
+        double iridium = -1;
+        double pallidium = 50;
+        double platinum = 50;
+        MapControl instance = new MapControl();
+        double expResult = -1;
+        double result = instance.upgradedArmor(iridium, pallidium, platinum);
+        assertEquals(expResult, result, 0.0);
+        
+    }
+     @Test
+    public void testUpgradedArmor3() {
+        System.out.println("upgradedArmor");
+        double iridium = 50;
+        double pallidium = -1;
+        double platinum = 50;
+        MapControl instance = new MapControl();
+        double expResult = -1;
+        double result = instance.upgradedArmor(iridium, pallidium, platinum);
+        assertEquals(expResult, result, 0.0);
+        
+    }
+       @Test
+    public void testUpgradedArmor4() {
+        System.out.println("upgradedArmor");
+        double iridium = 50;
+        double pallidium = 50;
+        double platinum = -1;
+        MapControl instance = new MapControl();
+        double expResult = -1;
+        double result = instance.upgradedArmor(iridium, pallidium, platinum);
+        assertEquals(expResult, result, 0.0);
+        
+    }
+        @Test
+    public void testUpgradedArmor5() {
+        System.out.println("upgradedArmor");
+        double iridium = 101;
+        double pallidium = 500;
+        double platinum = 60;
+        MapControl instance = new MapControl();
+        double expResult = -1;
+        double result = instance.upgradedArmor(iridium, pallidium, platinum);
+        assertEquals(expResult, result, 0.0);
+        
+    }
+    @Test
+    public void testUpgradedArmor6() {
+        System.out.println("upgradedArmor");
+        double iridium = 100;
+        double pallidium = 50;
+        double platinum = 30;
+        MapControl instance = new MapControl();
+        double expResult = 20;
+        double result = instance.upgradedArmor(iridium, pallidium, platinum);
+        assertEquals(expResult, result, 0.0);
+        
+    }
+    @Test
+    public void testUpgradedArmor7() {
+        System.out.println("upgradedArmor");
+        double iridium = 50;
+        double pallidium = 100;
+        double platinum = 30;
+        MapControl instance = new MapControl();
+        double expResult = 20;
+        double result = instance.upgradedArmor(iridium, pallidium, platinum);
+        assertEquals(expResult, result, 0.0);
+        
+    }
+     @Test
+    public void testUpgradedArmor8() {
+        System.out.println("upgradedArmor");
+        double iridium = 50;
+        double pallidium = 30;
+        double platinum = 100;
+        MapControl instance = new MapControl();
+        double expResult = 20;
+        double result = instance.upgradedArmor(iridium, pallidium, platinum);
+        assertEquals(expResult, result, 0.0);
+}
+    
 }

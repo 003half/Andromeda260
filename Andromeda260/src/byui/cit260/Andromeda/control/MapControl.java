@@ -75,4 +75,17 @@ public class MapControl {
          double total = 3.14 * height * radius * radius;
          return total;
      }
+     
+     public double upgradedArmor(double iridium, double pallidium, double platinum)
+     {
+             if (iridium < 0 || iridium > 100 || pallidium < 0 || pallidium >100 || platinum < 0 || platinum > 100)
+        {
+         return -1;
+        }
+        double newArmorCalc = iridium + pallidium + platinum;
+        double newArmor = (newArmorCalc / 3) /3;
+        return newArmor;
+                    }
      }
+             
+     
