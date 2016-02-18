@@ -17,7 +17,7 @@ import org.junit.BeforeClass;
  * @author rubengonzalezflores
  */
 public class MapControlTest {
-    
+
     public MapControlTest() {
     }
 
@@ -28,16 +28,14 @@ public class MapControlTest {
     @AfterClass
     public static void tearDownClass() throws Exception {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
-
-    
 
     /**
      * Test of distanceToPlanet method, of class MapControl.
@@ -51,7 +49,7 @@ public class MapControlTest {
         double expResult = 1;
         double result = instance.distanceToPlanet(pointA, pointB);
         assertEquals(expResult, result, 0.0);
-        
+
     }
 
     /**
@@ -70,9 +68,9 @@ public class MapControlTest {
         double expResult = 76.5;
         double result = instance.fuelNeeded(pointA, pointB, armor, iridium, palladium, platinum);
         assertEquals(expResult, result, 0.0);
-       
+
     }
-    
+
     @Test
     public void testFuelNeeded1() {
         System.out.println("fuelNeeded");
@@ -86,9 +84,9 @@ public class MapControlTest {
         double expResult = -1;
         double result = instance.fuelNeeded(pointA, pointB, armor, iridium, palladium, platinum);
         assertEquals(expResult, result, 0.0);
-        
+
     }
-    
+
     @Test
     public void testFuelNeeded2() {
         System.out.println("fuelNeeded");
@@ -102,9 +100,9 @@ public class MapControlTest {
         double expResult = -1;
         double result = instance.fuelNeeded(pointA, pointB, armor, iridium, palladium, platinum);
         assertEquals(expResult, result, 0.0);
-        
+
     }
-    
+
     @Test
     public void testFuelNeeded3() {
         System.out.println("fuelNeeded");
@@ -118,10 +116,10 @@ public class MapControlTest {
         double expResult = -1;
         double result = instance.fuelNeeded(pointA, pointB, armor, iridium, palladium, platinum);
         assertEquals(expResult, result, 0.0);
-      
+
     }
-    
-     @Test
+
+    @Test
     public void testFuelNeeded4() {
         System.out.println("fuelNeeded");
         double pointA = 50;
@@ -134,10 +132,10 @@ public class MapControlTest {
         double expResult = -1;
         double result = instance.fuelNeeded(pointA, pointB, armor, iridium, palladium, platinum);
         assertEquals(expResult, result, 0.0);
-    
+
     }
-    
-     @Test
+
+    @Test
     public void testFuelNeeded5() {
         System.out.println("fuelNeeded");
         double pointA = 50;
@@ -150,10 +148,10 @@ public class MapControlTest {
         double expResult = 326;
         double result = instance.fuelNeeded(pointA, pointB, armor, iridium, palladium, platinum);
         assertEquals(expResult, result, 0.0);
-      
+
     }
-    
-     @Test
+
+    @Test
     public void testFuelNeeded6() {
         System.out.println("fuelNeeded");
         double pointA = 200;
@@ -166,9 +164,10 @@ public class MapControlTest {
         double expResult = 0;
         double result = instance.fuelNeeded(pointA, pointB, armor, iridium, palladium, platinum);
         assertEquals(expResult, result, 0.0);
-       
+
     }
-     @Test
+
+    @Test
     public void testFuelNeeded7() {
         System.out.println("fuelNeeded");
         double pointA = 50;
@@ -181,7 +180,7 @@ public class MapControlTest {
         double expResult = 10301;
         double result = instance.fuelNeeded(pointA, pointB, armor, iridium, palladium, platinum);
         assertEquals(expResult, result, 0.0);
-        
+
     }
 
     /**
@@ -197,6 +196,7 @@ public class MapControlTest {
         double result = instance.cylinderVolumeCalculator(height, radius);
         assertEquals(expResult, result, 0.0);
     }
+
     @Test
     public void testCylinderVolumeCalculator2() {
         System.out.println("cylinderVolumeCalculator");
@@ -207,6 +207,7 @@ public class MapControlTest {
         double result = instance.cylinderVolumeCalculator(height, radius);
         assertEquals(expResult, result, 0.0);
     }
+
     @Test
     public void testCylinderVolumeCalculator3() {
         System.out.println("cylinderVolumeCalculator");
@@ -217,6 +218,7 @@ public class MapControlTest {
         double result = instance.cylinderVolumeCalculator(height, radius);
         assertEquals(expResult, result, 0.0);
     }
+
     @Test
     public void testCylinderVolumeCalculator4() {
         System.out.println("cylinderVolumeCalculator");
@@ -227,6 +229,7 @@ public class MapControlTest {
         double result = instance.cylinderVolumeCalculator(height, radius);
         assertEquals(expResult, result, 0.0);
     }
+
     @Test
     public void testCylinderVolumeCalculator5() {
         System.out.println("cylinderVolumeCalculator");
@@ -237,6 +240,7 @@ public class MapControlTest {
         double result = instance.cylinderVolumeCalculator(height, radius);
         assertEquals(expResult, result, 0.0);
     }
+
     @Test
     public void testCylinderVolumeCalculator6() {
         System.out.println("cylinderVolumeCalculator");
@@ -247,6 +251,7 @@ public class MapControlTest {
         double result = instance.cylinderVolumeCalculator(height, radius);
         assertEquals(expResult, result, 0.0);
     }
+
     @Test
     public void testCylinderVolumeCalculator7() {
         System.out.println("cylinderVolumeCalculator");
@@ -257,6 +262,7 @@ public class MapControlTest {
         double result = instance.cylinderVolumeCalculator(height, radius);
         assertEquals(expResult, result, 0.0);
     }
+
     @Test
     public void testCylinderVolumeCalculator8() {
         System.out.println("cylinderVolumeCalculator");
@@ -281,9 +287,10 @@ public class MapControlTest {
         double expResult = 17;
         double result = instance.upgradedArmor(iridium, pallidium, platinum);
         assertEquals(expResult, result, 0.0);
-        
+
     }
-     @Test
+
+    @Test
     public void testUpgradedArmor2() {
         System.out.println("upgradedArmor");
         double iridium = -1;
@@ -293,9 +300,10 @@ public class MapControlTest {
         double expResult = -1;
         double result = instance.upgradedArmor(iridium, pallidium, platinum);
         assertEquals(expResult, result, 0.0);
-        
+
     }
-     @Test
+
+    @Test
     public void testUpgradedArmor3() {
         System.out.println("upgradedArmor");
         double iridium = 50;
@@ -305,9 +313,10 @@ public class MapControlTest {
         double expResult = -1;
         double result = instance.upgradedArmor(iridium, pallidium, platinum);
         assertEquals(expResult, result, 0.0);
-        
+
     }
-       @Test
+
+    @Test
     public void testUpgradedArmor4() {
         System.out.println("upgradedArmor");
         double iridium = 50;
@@ -317,9 +326,10 @@ public class MapControlTest {
         double expResult = -1;
         double result = instance.upgradedArmor(iridium, pallidium, platinum);
         assertEquals(expResult, result, 0.0);
-        
+
     }
-        @Test
+
+    @Test
     public void testUpgradedArmor5() {
         System.out.println("upgradedArmor");
         double iridium = 101;
@@ -329,8 +339,9 @@ public class MapControlTest {
         double expResult = -1;
         double result = instance.upgradedArmor(iridium, pallidium, platinum);
         assertEquals(expResult, result, 0.0);
-        
+
     }
+
     @Test
     public void testUpgradedArmor6() {
         System.out.println("upgradedArmor");
@@ -341,8 +352,9 @@ public class MapControlTest {
         double expResult = 20;
         double result = instance.upgradedArmor(iridium, pallidium, platinum);
         assertEquals(expResult, result, 0.0);
-        
+
     }
+
     @Test
     public void testUpgradedArmor7() {
         System.out.println("upgradedArmor");
@@ -353,9 +365,10 @@ public class MapControlTest {
         double expResult = 20;
         double result = instance.upgradedArmor(iridium, pallidium, platinum);
         assertEquals(expResult, result, 0.0);
-        
+
     }
-     @Test
+
+    @Test
     public void testUpgradedArmor8() {
         System.out.println("upgradedArmor");
         double iridium = 50;
@@ -365,6 +378,6 @@ public class MapControlTest {
         double expResult = 20;
         double result = instance.upgradedArmor(iridium, pallidium, platinum);
         assertEquals(expResult, result, 0.0);
-}
-    
+    }
+
 }
