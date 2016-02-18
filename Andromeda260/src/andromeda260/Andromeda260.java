@@ -5,60 +5,51 @@
  */
 package andromeda260;
 
-import byui.cit260.Andromeda.model.Enemy;
-import byui.cit260.Andromeda.model.Game;
-import byui.cit260.Andromeda.model.LogBook;
-import byui.cit260.Andromeda.model.Map;
-import byui.cit260.Andromeda.model.MaterialResources;
-import byui.cit260.Andromeda.model.Planet;
-import byui.cit260.Andromeda.model.Player;
-import byui.cit260.Andromeda.model.Ship;
+import byui.cit260.Andromeda260.model.Enemy;
+import byui.cit260.Andromeda260.model.Game;
+import byui.cit260.Andromeda260.model.LogBook;
+import byui.cit260.Andromeda260.model.Map;
+import byui.cit260.Andromeda260.model.MaterialResources;
+import byui.cit260.Andromeda260.model.Planet;
+import byui.cit260.Andromeda260.model.Player;
+import byui.cit260.Andromeda260.model.Ship;
+import citbyui.cit260.Andromeda260.view.StartProgramView;
 /**
  *
  * @author rubengonzalezflores
  */
 public class Andromeda260 {
+    
+    private static Game currentGame = null;
+    private static Player player = null;
 
-    /**
+    public static void setCurrentGame(Game currentGame) {
+        Andromeda260.currentGame = currentGame;
+    }
+
+    public static void setPlayer(Player player) {
+        Andromeda260.player = player;
+    }
+
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
+    
+       /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Player playerOne = new Player();
-        Ship ship1 = new Ship();
-        LogBook logBookOne = new LogBook();
-        Enemy deadPeople = new Enemy();
-        Game theGame = new Game();
-        Map theMap = new Map();
-        Planet currentPlanet = new Planet();
-        MaterialResources currentResources = new MaterialResources();
         
-        
-        
-        playerOne.setName("Fred Flintstone");
-        String playerInfo = playerOne.toString();
-        System.out.println(playerInfo);
-        ship1.setShipName("Enterprise");
-        ship1.setDescription("This ship is the greatest ever built!");
-        ship1.setShipIntegrity(90);
-        ship1.setArmor(99);
-        ship1.setWeapons(99);
-        ship1.setCredits(9999);
-        String shipInfo = ship1.toString();
-        System.out.println(shipInfo);
-        logBookOne.setExplored("Nowhere yet!");
-        logBookOne.setEncounter("Nobody!");
-        logBookOne.setCredits("Nothing here!");
-        String logBookInfo = logBookOne.toString();
-        System.out.println(logBookInfo);
-        deadPeople.setName("Idiots!");
-        deadPeople.setDescription("Soon to be dead.");
-        deadPeople.setWeaponStrength(25);
-        deadPeople.setArmor(13);
-        String endOfDays = deadPeople.toString();
-        System.out.println(endOfDays);
-        
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.startProgram();
         
         
     }
+
+    
     
 }

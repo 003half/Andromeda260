@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package byui.cit260.Andromeda.control;
+package byui.cit260.Andromeda260.control;
 
-import byui.cit260.Andromeda.model.Ship;
+import byui.cit260.Andromeda260.model.Ship;
 
 /**
  *

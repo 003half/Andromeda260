@@ -5,6 +5,7 @@
  */
 package byui.cit260.Andromeda.control;
 
+import byui.cit260.Andromeda260.control.MapControl;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

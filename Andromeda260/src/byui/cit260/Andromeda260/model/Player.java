@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package byui.cit260.Andromeda.model;
+package byui.cit260.Andromeda260.model;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -12,24 +12,25 @@ import java.util.Objects;
  *
  * @author rubengonzalezflores
  */
-public class Map implements Serializable {
-    private String planetName;
+public class Player implements Serializable {
+    // Class instance variables
+    private String name;
 
-    public Map() {
+    public Player() {
+    }
+    
+    public String getName() {
+        return name;
     }
 
-    public String getPlanetName() {
-        return planetName;
-    }
-
-    public void setPlanetName(String planetName) {
-        this.planetName = planetName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 47 * hash + Objects.hashCode(this.planetName);
+        hash = 47 * hash + Objects.hashCode(this.name);
         return hash;
     }
 
@@ -44,8 +45,8 @@ public class Map implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Map other = (Map) obj;
-        if (!Objects.equals(this.planetName, other.planetName)) {
+        final Player other = (Player) obj;
+        if (!Objects.equals(this.name, other.name)) {
             return false;
         }
         return true;
@@ -53,8 +54,9 @@ public class Map implements Serializable {
 
     @Override
     public String toString() {
-        return "Map{" + "planetName=" + planetName + '}';
+        return "Player{" + "name=" + name + '}';
     }
+    
     
     
 }
