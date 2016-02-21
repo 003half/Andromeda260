@@ -1,11 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Authors Dean Boyer & Rueben Gonzales
  */
 package byui.cit260.Andromeda260.control;
 
 import andromeda260.Andromeda260;
+import byui.cit260.Andromeda260.model.Game;
 import byui.cit260.Andromeda260.model.Player;
 
 /**
@@ -25,6 +24,12 @@ public class GameControl {
        Andromeda260.setPlayer(player); // save the player
        
        return player;
+    }
+
+    public static void createNewGame(Player player) {
+        Game game = new Game();
+        game.setPlayer(player);
+        Andromeda260.setGame(game);
     }
     
 }

@@ -1,10 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package citbyui.cit260.Andromeda260.view;
 
+import andromeda260.Andromeda260;
 import byui.cit260.Andromeda260.control.GameControl;
 import byui.cit260.Andromeda260.model.Player;
 import java.util.Scanner;
@@ -28,10 +25,15 @@ public class StartProgramView {
         //Create and save the player object
         Player player = GameControl.createPlayer(playerName);
         
+        //set the player
+        Andromeda260.setPlayer(player);
+        
         //DISPLAY a customized welcome message
-        this.displayWelcomeMessage(player);
+        this.displayWelcomeMessage(player.getName());
 
         //DISPLAY the main menu
+        MainMenuView mainMenu = new MainMenuView();
+        mainMenu.displayMenu();
 
         //END
 
@@ -84,10 +86,16 @@ public class StartProgramView {
         return playersName; // return the name
     }
 
-    private void displayWelcomeMessage(Player player) {
+    private void displayWelcomeMessage(String playerName) {
         System.out.println("\n\n====================================");
-        System.out.println("\nWelcome to the game " + player.getName());
+        System.out.println("\nWelcome to the game " + playerName);
         System.out.println("\nWe hope you have a lot of fun!");
         System.out.println("\n====================================");
+        
+        //Create MainMenuView object
+        MainMenuView mainMenuView = new MainMenuView();
+        
+        //Display the main menu view
+        mainMenuView.displayMainMenuView();
     }
 }

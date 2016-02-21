@@ -12,10 +12,21 @@ import java.io.Serializable;
  * @author rubengonzalezflores
  */
 public class Game implements Serializable {
-    private long totalTime;
-
-    public Game() {
+    
+    private Player player;
+    
+    public Game(){
     }
+    
+    public Player getPlayer(){
+        return player;
+    }
+    
+    public void setPlayer(Player player){
+        this.player = player;
+    }
+    
+    private long totalTime;
 
     public long getTotalTime() {
         return totalTime;
@@ -54,6 +65,5 @@ public class Game implements Serializable {
     public String toString() {
         return "Game{" + "totalTime=" + totalTime + '}';
     }
-    
-    
+
 }
