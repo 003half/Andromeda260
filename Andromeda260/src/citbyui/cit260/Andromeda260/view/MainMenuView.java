@@ -6,8 +6,8 @@ import byui.cit260.Andromeda260.control.GameControl;
 import java.util.Scanner;
 
 /**
- * 
- * @author Dean Boyer & Reuben Gonzalez
+ *
+ * @author Ruben Gonzalez Flores & Dean Boyer
  */
 public class MainMenuView {
     
@@ -79,9 +79,10 @@ public class MainMenuView {
     }
 
     private void startNewGame() {
-     GameControl.createNewGame(Andromeda260.getPlayer());
-     
-        System.out.println("CALLED START NEW GAME - NOT IMPLEMENTED YET");
+        GameControl.createNewGame(Andromeda260.getPlayer());
+        this.storyOfTheGame();
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.displayGameMenu();
     }
 
     private void loadSavedGame() {
@@ -94,7 +95,11 @@ public class MainMenuView {
 
     private void helpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.displayMenu();
+        helpMenu.displayHelpMenu();
+    }
+
+    private void storyOfTheGame() {
+        System.out.println("\n Put some sort of story here about needing to leave earth");
     }
     
 }

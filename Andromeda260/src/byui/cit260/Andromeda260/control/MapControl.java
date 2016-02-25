@@ -65,17 +65,17 @@ public class MapControl {
             return fuelForTrip;
             }
      
-     public double cylinderVolumeCalculator(double height, double radius)
-     {
-         if (height < 0 || radius < 0 || height > 100 || radius > 100) {
-             return -1;
-         }
-         double total = 3.14 * height * radius * radius;
-         return total;
-     }
+     public static double cylinderVolumeCalculator(double height, double radius)
+        {
+        if (height < 0 || radius < 0 || height > 100 || radius > 100) {
+            return -1;
+        }
+        double total = 3.14 * height * radius * radius;
+        return total;
+        }
      
      public double upgradedArmor(double iridium, double pallidium, double platinum)
-     {
+        {
              if (iridium < 0 || iridium > 100 || pallidium < 0 || pallidium >100 || platinum < 0 || platinum > 100)
         {
          return -1;
@@ -83,7 +83,7 @@ public class MapControl {
         double newArmorCalc = iridium + pallidium + platinum;
         double newArmor = (newArmorCalc / 3) /3;
         return newArmor;
-                    }
+        }
      }
              
      

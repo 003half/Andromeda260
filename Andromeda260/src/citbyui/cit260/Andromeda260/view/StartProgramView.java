@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author reyob
+ * @author Ruben Gonzalez Flores & Dean Boyer
  */
 public class StartProgramView {
     

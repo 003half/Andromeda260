@@ -8,7 +8,7 @@ import byui.cit260.Andromeda260.model.Player;
 import citbyui.cit260.Andromeda260.view.StartProgramView;
 /**
  *
- * @author rubengonzalezflores
+ * @author Ruben Gonzalez Flores & Dean Boyer
  */
 public class Andromeda260 {
     

@@ -23,7 +23,7 @@ public class HelpMenuView {
      
      }
 
-    void displayMenu() {
+    void displayHelpMenu() {
         char selection = ' ';
         
         do {
