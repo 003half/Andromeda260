@@ -1,13 +1,9 @@
-/*
- * Authors Dean Boyer & Rueben Gonzales
- */
 package byui.cit260.Andromeda260.control;
 
 import byui.cit260.Andromeda260.model.Ship;
 
-/**
- *
- * @author rubengonzalezflores
+/*
+ * Authors Dean Boyer & Rueben Gonzales
  */
 public class MapControl {
      public double distanceToPlanet(double pointA, double pointB)
