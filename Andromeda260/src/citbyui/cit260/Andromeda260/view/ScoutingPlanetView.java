@@ -9,17 +9,10 @@ import java.util.Scanner;
  *
  * @author Ruben Gonzalez Flores & Dean Boyer
  */
-public class ScoutingPlanetView {
+public class ScoutingPlanetView extends View{
     
     public ScoutingPlanetView(){
-    }
-
-    void meetTheLocals() {
-        //At some point we need to insert a way to check if the player has
-        //been to this planet before.
-        
-        //For now, we will asume they have nevver been to this planet.
-        System.out.println("\nAs you land your shuttle on the surface,"
+        this.menu = "\nAs you land your shuttle on the surface,"
                 + "\nthe local vilagers are waiting to great you."
                 + "\nFor now, they don't seem hostile, but are looking"
                 + "\nfor your help."
@@ -30,9 +23,17 @@ public class ScoutingPlanetView {
                 + "\ncan have the contents if you can open it."
                 + "\nAfter many hours of study, you realize that if you"
                 + "\ncan guess the volume of the column, it will open"
-                + "\nand reveal the prize inside.");
+                + "\nand reveal the prize inside.";
+    }
+
+    @Override
+    public void display() {
+        //At some point we need to insert a way to check if the player has
+        //been to this planet before.
+        //For now, we will asume they have nevver been to this planet.
+        System.out.println(this.menu);
         double height = random() * 100;
-        double radius = random() * 10;
+        double radius = random() * 10 + 1;
         height = floor(height);
         radius = floor(radius);
         double diameter = radius * 2;
@@ -43,7 +44,7 @@ public class ScoutingPlanetView {
         System.out.println("\nGuess the volume of the column in cubic units");
         boolean valid = false;
         while (!valid){
-        double guestimate = this.getInput();
+        double guestimate = this.getNumberInput();
         System.out.println("\nYour guess is " + guestimate);
             if ((guestimate == totalVolume) || 
                 (((guestimate + 50) > totalVolume) && guestimate < totalVolume) ||
@@ -54,36 +55,5 @@ public class ScoutingPlanetView {
         }
         System.out.println("\nHaving guessed close enough, the column opens for you");
     }
-
-    private double getInput() {
-        
-        Scanner keyboard = new Scanner(System.in);
-        boolean valid = false;
-        String selection = null;
-        
-        //while a valid parameter has not beein input, will loop
-        while (!valid){
-            
-            //get the value entered from the keyboard
-            selection = keyboard.nextLine();
-            selection = selection.trim();
-            
-            if (selection.length() < 1) {//blank value entered
-                System.out.println("\n** Invalid selection ** Try again");
-            }
-            try {
-                Double.parseDouble(selection);
-                valid = true;
-            }
-            catch (NumberFormatException nfe) {
-                System.out.println("Input was not a number, please use numbers only");
-            }
-            
-        }
-        double guestimate = Double.parseDouble(selection);
-        return guestimate;
-    }
-    
-    
     
 }

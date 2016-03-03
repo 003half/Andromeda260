@@ -1,14 +1,13 @@
 package citbyui.cit260.Andromeda260.view;
 
-import java.util.Scanner;
-
 /**
  *
  * @author Ruben Gonzalez Flores & Dean Boyer
  */
-public class GameMenuView {
+public class GameMenuView extends View{
     
-    private final String menu = "\n"
+    public GameMenuView(){
+        this.menu = "\n"
             + "\nA - Attack the natives"
             + "\nL - Leave location"
             + "\nS - Scout the current location"
@@ -16,26 +15,10 @@ public class GameMenuView {
             + "\nU - Upgrade armor"
             + "\nH - Help Menu"
             + "\nQ - Quit";
-    
-    public GameMenuView(){
-    
     }
     
-     void displayGameMenu() {
-        char selection = ' ';
-        
-        do {
-            System.out.println(menu);
-            
-            String input = getInput();
-            selection = input.charAt(0);
-            
-            doAction(selection);
-            
-        } while (selection != 'Q');
-    }
-
-    private void doAction(char selection) {
+    @Override
+    public void doAction(char selection) {
         
         switch (selection) {
             case 'A':
@@ -63,25 +46,6 @@ public class GameMenuView {
                 break;
         }
     }
-    
-     private String getInput() {
-        Scanner keyboard = new Scanner(System.in);
-        String input = null;
-        boolean isValid = false;
- 
-        while (!isValid) {
-            System.out.println("Please select an option: ");
-            input = keyboard.nextLine();
-            input = input.trim();
- 
-            if (input == null || input.length() == 0) {
-                System.out.println("Invalid input - please enter a valid character");
-            } else {
-                isValid = true;
-            }
-        }
-        return input.toUpperCase();
-    }
 
     private void attackNatives() {
         System.out.println("called attack Natives");
@@ -93,21 +57,24 @@ public class GameMenuView {
 
     private void scoutCurrentLocation() {
         ScoutingPlanetView scoutingPlanet = new ScoutingPlanetView();
-        scoutingPlanet.meetTheLocals();
+        scoutingPlanet.display();
         
     }
     
     private void helpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.displayHelpMenu();
+        helpMenu.display();
     }
 
     private void upgradeArmor() {
-        System.out.println("called upgradeArmor");
+        UpgradeResources upgradeResources = new UpgradeResources();
+        upgradeResources.display();
+        
     }
 
     private void improveWeapon() {
-        System.out.println("called improveWeapon");
+        UpgradeResources upgradeResources = new UpgradeResources();
+        upgradeResources.display();
     }
      
 }

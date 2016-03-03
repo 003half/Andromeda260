@@ -1,53 +1,57 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package citbyui.cit260.Andromeda260.view;
-
-import java.util.Scanner;
 
 /**
  *
- * @author rubengonzalezflores
+ * @author rubengonzalezflores & Dean Boyer
  */
-public class UpgradeResources {
+public class UpgradeResources extends View{
     
     public UpgradeResources(){
-        
-        
+        this.menu = "\nDo you have enough resources to upgrade"
+                + "\nyour weapons or armor?"
+                + "\n"
+                + "\nChoose which you would like to upgrade"
+                + "\nA - to upgrade armor"
+                + "\nW - to upgrade weapons"
+                + "\nH - Help menu"
+                + "\nQ - if you don't think you can upgrade either";
         }
-    void upgradeWeapon(){
+    
+    @Override
+    public void doAction(char selection) {
+        switch (selection) {
+            case 'W':
+                upgradeWeapon();
+                break;
+            case 'A':
+                upgradeArmor();
+                break;
+            case 'H':
+                helpMenu();
+                break;
+            case 'Q':
+                break;
+            default:
+                System.out.println("Invalid option");
+                break;
+        }
+    }
+        
+    private void upgradeWeapon(){
         //To Be Used! Figured we could use this Class for both Armor and other resources later on
+        System.out.println("\nFor now, you have earned yourself one free upgrade.");
+        //This function to be repaired later
+    }
+
+    private void upgradeArmor() {
+       //To Be Used!! Calcualte how to upgrade armor. Use this.getNumberinput().
+        System.out.println("\nOkay, you can have another free upgrade");
+        //This function to be completed later
+    }
+
+    private void helpMenu() {
+        HelpMenuView helpMenu = new HelpMenuView();
+        helpMenu.display();
     }
     
-    void upgradeArmor(){
-        System.out.println("\nIt looks like you have enough resources for an upgrade!"
-            +"\n Follow these steps to upgrade your armor.");
-        boolean valid = false;
-        while (!valid){
-            double iridium = this.getInputIridium();
-        }
-    }
-    
-    private double getInputIridium(){
-        Scanner keyboard = new Scanner(System.ini);
-        boolean valid = false;
-        String selection = null;
-        //The loop starts!
-        while (!valid){
-            selection = keyboard.nextLine();
-            selection = selection.trim();
-            
-            if (selection.length() < 1) {
-                System.out.println("Input cannot be left blank.");
-                
-            }
-            
-            else {
-                selection = this.upgradeArmor();
-                
-            }
-        }
-        }
     }

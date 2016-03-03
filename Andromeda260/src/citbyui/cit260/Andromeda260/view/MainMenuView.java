@@ -3,59 +3,24 @@ package citbyui.cit260.Andromeda260.view;
 
 import andromeda260.Andromeda260;
 import byui.cit260.Andromeda260.control.GameControl;
-import java.util.Scanner;
 
 /**
  *
  * @author Ruben Gonzalez Flores & Dean Boyer
  */
-public class MainMenuView {
+public class MainMenuView extends View {
     
-    private final String menu = "\n"
-            + "\nN - Start New Game"
-            + "\nL - Load Saved Game"
-            + "\nS - Save Current Game"
-            + "\nH - Help Menu"
-            + "\nQ - Quit";
-
-    void displayMenu() {
-        System.out.println("This Function does nothing!");        
+      public MainMenuView() {
+        this.menu = "\n"
+                + "\nN - Start New Game"
+                + "\nL - Load Saved Game"
+                + "\nS - Save Current Game"
+                + "\nH - Help Menu"
+                + "\nQ - Quit";
     }
-
-    public void displayMainMenuView() {
-        
-       char selection = ' ';
-       
-       do {
-           System.out.println(menu);
-           
-           String input = getInput();
-           selection = input.charAt(0);
-           
-           doAction(selection);
-       } while (selection != 'Q');
-    }
-
-    private String getInput() {
-        Scanner keyboard = new Scanner(System.in);
-        String input = null;
-        boolean isValid = false;
-        
-        while (!isValid){
-            System.out.println("Please choose a course of action");
-            input = keyboard.nextLine();
-            input = input.trim();
-            
-            if (input == null || input.length() == 0) {
-                System.out.println("Invalid input - please enter a valid character");
-            }   else {
-                 isValid = true;
-                }
-        }
-        return input.toUpperCase();
-    }
-
-    private void doAction(char selection) {
+    
+    @Override
+    public void doAction(char selection) {
         
         switch (selection){
             case 'N':
@@ -82,7 +47,7 @@ public class MainMenuView {
         GameControl.createNewGame(Andromeda260.getPlayer());
         this.storyOfTheGame();
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayGameMenu();
+        gameMenu.display();
     }
 
     private void loadSavedGame() {
@@ -95,7 +60,7 @@ public class MainMenuView {
 
     private void helpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.displayHelpMenu();
+        helpMenu.display();
     }
 
     private void storyOfTheGame() {

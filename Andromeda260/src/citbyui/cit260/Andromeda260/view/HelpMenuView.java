@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package citbyui.cit260.Andromeda260.view;
 
 import java.util.Scanner;
@@ -11,33 +6,19 @@ import java.util.Scanner;
  *
  * @author reyob
  */
-public class HelpMenuView {
-     private final String menu = "\n"
+public class HelpMenuView extends View{
+
+     public HelpMenuView(){
+         this.menu = "\n"
             + "\nA - About this game"
             + "\nH - How to play"
             + "\nO - Objective"
             + "\nM - Movement help"
             + "\nQ - Quit";
-     
-     public HelpMenuView(){
-     
      }
-
-    void displayHelpMenu() {
-        char selection = ' ';
-        
-        do {
-            System.out.println(menu);
-            
-            String input = getInput();
-            selection = input.charAt(0);
-            
-            doAction(selection);
-            
-        } while (selection != 'Q');
-    }
-
-    private void doAction(char selection) {
+     
+    @Override
+     public void doAction(char selection) {
         
         switch (selection) {
              case 'A':
@@ -59,26 +40,7 @@ public class HelpMenuView {
                  break;
          }
     }
-
-    private String getInput() {
-        Scanner keyboard = new Scanner(System.in);
-        String input = null;
-        boolean isValid = false;
- 
-        while (!isValid) {
-            System.out.println("Please select an option: ");
-            input = keyboard.nextLine();
-            input = input.trim();
- 
-            if (input == null || input.length() == 0) {
-                System.out.println("Invalid input - please enter a valid character");
-            } else {
-                isValid = true;
-            }
-        }
-        return input.toUpperCase();
-    }
-
+    
     private void aboutGame() {
         System.out.println("What is this game about");
     }

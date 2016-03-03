@@ -10,17 +10,17 @@ import java.util.Scanner;
  *
  * @author Ruben Gonzalez Flores & Dean Boyer
  */
-public class StartProgramView {
+public class StartProgramView extends View{
     
     public StartProgramView(){
     }
     public void startProgram(){
 
         //Display the banner screen
-        this.displayBanner();
+        this.display();
         
         // prompt the player to enter their name, retrieve the name of the player
-        String playerName = this.getPlayersName();
+        String playerName = this.getInput();
         
         //Create and save the player object
         Player player = GameControl.createPlayer(playerName);
@@ -33,36 +33,39 @@ public class StartProgramView {
 
         //DISPLAY the main menu
         MainMenuView mainMenu = new MainMenuView();
-        mainMenu.displayMenu();
+        mainMenu.display();
 
         //END
 
 
     }
 
-    private void displayBanner() {
-        System.out.println("\n\n***************************************");
+    @Override
+    public void display() {
+        System.out.println("\n\n*****************************************");
         
-        System.out.println("*                                      *"
-                       + "\n* This is the game of Andromeda        *"
-                       + "\n* In this game you will travel the     *"
-                       + "\n* stars as captain of the starship     *"
-                       + "\n* Butterfinger.                        *");
+        System.out.println("*                                       *"
+                       + "\n*  This is the game of Andromeda        *"
+                       + "\n*  In this game you will travel the     *"
+                       + "\n*  stars as captain of the starship     *"
+                       + "\n*  Butterfinger.                        *");
         
-        System.out.println("*                                      *"
-                        + "\n You and your crew will travel to     *"
-                        + "\n different planets and battle aliens  *"
-                        + "\n as you try to find a new home for    *"
-                        + "\n humans.                              *");
+        System.out.println("*                                       *"
+                        + "\n*  You and your crew will travel to     *"
+                        + "\n*  different planets and battle aliens  *"
+                        + "\n*  as you try to find a new home for    *"
+                        + "\n*  humans.                              *");
         
-        System.out.println("*                                      *"
-                        + "\n Good luck and may the odds be ever   *"
-                        + "\n in your favor.                       *");
+        System.out.println("*                                       *"
+                        + "\n*  Good luck and may the odds be ever   *"
+                        + "\n*  in your favor.                       *");
         
-        System.out.println("*****************************************");
+        System.out.println("*                                       *"
+                + "\n*****************************************");
     }
 
-    private String getPlayersName() {
+    @Override
+    public String getInput() {
         boolean valid = false; // indicates if the name has been retrieved
         String playersName = null;
         Scanner keyboard = new Scanner(System.in); // keyboard input stream
@@ -96,6 +99,6 @@ public class StartProgramView {
         MainMenuView mainMenuView = new MainMenuView();
         
         //Display the main menu view
-        mainMenuView.displayMainMenuView();
+        mainMenuView.display();
     }
 }
