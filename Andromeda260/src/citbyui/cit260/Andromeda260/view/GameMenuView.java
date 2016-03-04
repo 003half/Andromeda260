@@ -48,7 +48,9 @@ public class GameMenuView extends View{
     }
 
     private void attackNatives() {
-        System.out.println("called attack Natives");
+        AttackNativesView attackNatives = new AttackNativesView();
+        attackNatives.display();
+        
     }
 
     private void leaveLocation() {
