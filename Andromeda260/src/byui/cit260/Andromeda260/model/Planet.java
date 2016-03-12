@@ -19,7 +19,8 @@ public class Planet implements Serializable {
     private String description;
     
     private String system;
-    
+    private int column;
+    private int row;
     private Boolean visited;
     
     private Boolean explored;
@@ -67,14 +68,32 @@ public class Planet implements Serializable {
         this.explored = explored;
     }
 
+    public int getColumn() {
+        return column;
+    }
+
+    public void setColumn(int column) {
+        this.column = column;
+    }
+
+    public int getRow() {
+        return row;
+    }
+
+    public void setRow(int row) {
+        this.row = row;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 59 * hash + Objects.hashCode(this.name);
-        hash = 59 * hash + Objects.hashCode(this.description);
-        hash = 59 * hash + Objects.hashCode(this.system);
-        hash = 59 * hash + Objects.hashCode(this.visited);
-        hash = 59 * hash + Objects.hashCode(this.explored);
+        hash = 41 * hash + Objects.hashCode(this.name);
+        hash = 41 * hash + Objects.hashCode(this.description);
+        hash = 41 * hash + Objects.hashCode(this.system);
+        hash = 41 * hash + this.column;
+        hash = 41 * hash + this.row;
+        hash = 41 * hash + Objects.hashCode(this.visited);
+        hash = 41 * hash + Objects.hashCode(this.explored);
         return hash;
     }
 
@@ -90,6 +109,12 @@ public class Planet implements Serializable {
             return false;
         }
         final Planet other = (Planet) obj;
+        if (this.column != other.column) {
+            return false;
+        }
+        if (this.row != other.row) {
+            return false;
+        }
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
@@ -110,10 +135,10 @@ public class Planet implements Serializable {
 
     @Override
     public String toString() {
-        return "Planet{" + "name=" + name + ", description=" + description + ", system=" + system + ", visited=" + visited + ", explored=" + explored + '}';
+        return "Planet{" + "name=" + name + ", description=" + description + ", system=" + system + ", column=" + column + ", row=" + row + ", visited=" + visited + ", explored=" + explored + '}';
     }
-    
-    
+
+
 
     
     
