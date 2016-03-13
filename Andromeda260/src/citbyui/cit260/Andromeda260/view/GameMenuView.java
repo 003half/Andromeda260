@@ -85,18 +85,14 @@ public class GameMenuView extends View{
         
     }
 
-    private void displayInventory() {
+    private void displayInventory(){
+        MaterialResources[] materials = GameControl.getSortedInventoryList();
         
-    }
-     
-    private void viewInventory(){
-        MaterialResources[] materialResources = GameControl.getSortedInventoryList();
+        System.out.println("\nList of Resources");
         
-        System.out.println("List of Resources");
-        
-        for (MaterialResources materialResources : resources){
-            System.out.println(MaterialResources.getDescription() + "\t "+
-                    MaterialResources.getQuantity() + "\t   ");
+        for (MaterialResources materialResources : materials){
+            System.out.println(materialResources.getDescription() + ",\t"+
+                               materialResources.getQuantity() + "\t   ");
             
         }
         
