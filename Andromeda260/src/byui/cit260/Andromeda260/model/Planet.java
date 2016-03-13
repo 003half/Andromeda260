@@ -6,6 +6,7 @@
 package byui.cit260.Andromeda260.model;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -25,6 +26,11 @@ public class Planet implements Serializable {
     
     private Boolean explored;
 
+    private MaterialResources[] materialResources;
+    
+    private Scene scene;
+   
+    
     public Planet() {
     }
 
@@ -68,12 +74,21 @@ public class Planet implements Serializable {
         this.explored = explored;
     }
 
-    public int getColumn() {
-        return column;
+
+    public MaterialResources[] getMaterialResources() {
+        return materialResources;
     }
 
-    public void setColumn(int column) {
-        this.column = column;
+    public void setMaterialResources(MaterialResources[] materialResources) {
+        this.materialResources = materialResources;
+    }
+
+    public Scene getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
     }
 
     public int getRow() {
@@ -84,16 +99,26 @@ public class Planet implements Serializable {
         this.row = row;
     }
 
+    public int getColumn() {
+        return column;
+    }
+
+    public void setColumn(int column) {
+        this.column = column;
+}
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 41 * hash + Objects.hashCode(this.name);
-        hash = 41 * hash + Objects.hashCode(this.description);
-        hash = 41 * hash + Objects.hashCode(this.system);
-        hash = 41 * hash + this.column;
-        hash = 41 * hash + this.row;
-        hash = 41 * hash + Objects.hashCode(this.visited);
-        hash = 41 * hash + Objects.hashCode(this.explored);
+        hash = 67 * hash + Objects.hashCode(this.name);
+        hash = 67 * hash + Objects.hashCode(this.description);
+        hash = 67 * hash + Objects.hashCode(this.system);
+        hash = 67 * hash + this.column;
+        hash = 67 * hash + this.row;
+        hash = 67 * hash + Objects.hashCode(this.visited);
+        hash = 67 * hash + Objects.hashCode(this.explored);
+        hash = 67 * hash + Arrays.deepHashCode(this.materialResources);
+        hash = 67 * hash + Objects.hashCode(this.scene);
         return hash;
     }
 
@@ -130,16 +155,17 @@ public class Planet implements Serializable {
         if (!Objects.equals(this.explored, other.explored)) {
             return false;
         }
+        if (!Arrays.deepEquals(this.materialResources, other.materialResources)) {
+            return false;
+        }
+        if (!Objects.equals(this.scene, other.scene)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Planet{" + "name=" + name + ", description=" + description + ", system=" + system + ", column=" + column + ", row=" + row + ", visited=" + visited + ", explored=" + explored + '}';
+        return "Planet{" + "name=" + name + ", description=" + description + ", system=" + system + ", column=" + column + ", row=" + row + ", visited=" + visited + ", explored=" + explored + ", materialResources=" + materialResources + ", scene=" + scene + '}';
     }
-
-
-
-    
-    
 }
