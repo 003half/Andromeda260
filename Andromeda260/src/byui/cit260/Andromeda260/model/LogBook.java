@@ -17,10 +17,12 @@ public class LogBook implements Serializable{
     private String explored;
     private String encounter;
     private String credits;
-
+    
+    private Ship ship;
+    
     public LogBook() {
     }
-
+    
     public String getExplored() {
         return explored;
     }
@@ -43,6 +45,14 @@ public class LogBook implements Serializable{
 
     public void setCredits(String credits) {
         this.credits = credits;
+    }
+
+    public Ship getShip() {
+        return ship;
+    }
+
+    public void setShip(Ship ship) {
+        this.ship = ship;
     }
 
     @Override

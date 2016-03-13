@@ -1,18 +1,23 @@
 package citbyui.cit260.Andromeda260.view;
 
+import byui.cit260.Andromeda260.control.GameControl;
+import byui.cit260.Andromeda260.model.MaterialResources;
+import byui.cit260.Andromeda260.model.Planet;
+
 /**
  *
  * @author Ruben Gonzalez Flores & Dean Boyer
  */
 public class GameMenuView extends View{
-    
+    private static final int NUM_ROWS = 5;
+    private static final int NUM_COLUMNS = 5;
     public GameMenuView(){
         this.menu = "\n"
             + "\nA - Attack the natives"
-            + "\nL - Leave location"
-            + "\nS - Scout the current location"
-            + "\nI - Increase weapon Damage"
-            + "\nU - Upgrade armor"
+            + "\nL - Leave Location"
+            + "\nS - Scout the Current Location"
+            + "\nI - Inventory"
+            + "\nU - Upgrade Armor or Weapon"
             + "\nH - Help Menu"
             + "\nQ - Quit";
     }
@@ -25,16 +30,16 @@ public class GameMenuView extends View{
                 attackNatives();
                 break;
             case 'L':
-                leaveLocation();
+                displayMap();
                 break;
             case 'S':
                 scoutCurrentLocation();
                 break;
             case 'I':
-                improveWeapon();
+                displayInventory();
                 break;
             case 'U':
-                upgradeArmor();
+                upgradeArmorOrWeapon();
                 break;
             case 'H':
                 helpMenu();
@@ -53,8 +58,14 @@ public class GameMenuView extends View{
         
     }
 
-    private void leaveLocation() {
-        System.out.println("called leaveLocation");
+    private void displayMap() {
+        
+        System.out.println("called displayMap");
+        System.out.println("Map!");
+        System.out.println("0 | 1 | 2 | 3 | 4 ");
+        for (int i = 0; i < NUM_ROWS; i++){
+            System.out.println("\n\t");
+        }
     }
 
     private void scoutCurrentLocation() {
@@ -68,15 +79,26 @@ public class GameMenuView extends View{
         helpMenu.display();
     }
 
-    private void upgradeArmor() {
+    private void upgradeArmorOrWeapon() {
         UpgradeResources upgradeResources = new UpgradeResources();
         upgradeResources.display();
         
     }
 
-    private void improveWeapon() {
-        UpgradeResources upgradeResources = new UpgradeResources();
-        upgradeResources.display();
+    private void displayInventory() {
+        
     }
      
+    private void viewInventory(){
+        MaterialResources[] materialResources = GameControl.getSortedInventoryList();
+        
+        System.out.println("List of Resources");
+        
+        for (MaterialResources materialResources : resources){
+            System.out.println(MaterialResources.getDescription() + "\t "+
+                    MaterialResources.getQuantity() + "\t   ");
+            
+        }
+        
+    }
 }

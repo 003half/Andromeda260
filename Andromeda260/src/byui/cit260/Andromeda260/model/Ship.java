@@ -6,6 +6,7 @@
 package byui.cit260.Andromeda260.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -18,9 +19,18 @@ public class Ship implements Serializable{
     private double shipIntegrity;
     private double armor;
     private double weapons;
-    private double credits;
 
+    private LogBook logbook;
+    ArrayList<Game> game;
+    private MaterialResources[] materialResources;
+    
     public Ship() {
+        this.shipName = ("Excelsior");
+        this.description = ("The great. The mighty. The Excelsior.");
+        this.shipIntegrity = 0;
+        this.armor = 0;
+        this.weapons = 0;
+        
     }
 
     
@@ -65,12 +75,29 @@ public class Ship implements Serializable{
         this.weapons = weapons;
     }
 
-    public double getCredits() {
-        return credits;
+
+    public LogBook getLogbook() {
+        return logbook;
     }
 
-    public void setCredits(double credits) {
-        this.credits = credits;
+    public void setLogbook(LogBook logbook) {
+        this.logbook = logbook;
+    }
+
+    public ArrayList<Game> getGame() {
+        return game;
+    }
+
+    public void setGame(ArrayList<Game> game) {
+        this.game = game;
+    }
+
+    public MaterialResources[] getMaterialResources() {
+        return materialResources;
+    }
+
+    public void setMaterialResources(MaterialResources[] materialResources) {
+        this.materialResources = materialResources;
     }
 
     @Override
@@ -81,13 +108,12 @@ public class Ship implements Serializable{
         hash = 53 * hash + (int) (Double.doubleToLongBits(this.shipIntegrity) ^ (Double.doubleToLongBits(this.shipIntegrity) >>> 32));
         hash = 53 * hash + (int) (Double.doubleToLongBits(this.armor) ^ (Double.doubleToLongBits(this.armor) >>> 32));
         hash = 53 * hash + (int) (Double.doubleToLongBits(this.weapons) ^ (Double.doubleToLongBits(this.weapons) >>> 32));
-        hash = 53 * hash + (int) (Double.doubleToLongBits(this.credits) ^ (Double.doubleToLongBits(this.credits) >>> 32));
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Ship{" + "shipName=" + shipName + ", description=" + description + ", shipIntegrity=" + shipIntegrity + ", armor=" + armor + ", weapons=" + weapons + ", credits=" + credits + '}';
+        return "Ship{" + "shipName=" + shipName + ", description=" + description + ", shipIntegrity=" + shipIntegrity + ", armor=" + armor + ", weapons=" + weapons +  '}';
     }
 
     @Override
@@ -109,9 +135,6 @@ public class Ship implements Serializable{
             return false;
         }
         if (Double.doubleToLongBits(this.weapons) != Double.doubleToLongBits(other.weapons)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.credits) != Double.doubleToLongBits(other.credits)) {
             return false;
         }
         if (!Objects.equals(this.shipName, other.shipName)) {

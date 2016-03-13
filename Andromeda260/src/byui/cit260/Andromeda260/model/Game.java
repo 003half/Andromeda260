@@ -14,6 +14,9 @@ import java.io.Serializable;
 public class Game implements Serializable {
     
     private Player player;
+    private Ship ship;
+    private Map map;
+    private MaterialResources[] materialResources;
     
     public Game(){
     }
@@ -36,6 +39,31 @@ public class Game implements Serializable {
         this.totalTime = totalTime;
     }
 
+    public Ship getShip() {
+        return ship;
+    }
+
+    public void setShip(Ship ship) {
+        this.ship = ship;
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
+    public MaterialResources[] getMaterialResources() {
+        return materialResources;
+    }
+
+    public void setMaterialResources(MaterialResources[] materialResources) {
+        this.materialResources = materialResources;
+    }
+
+    
     @Override
     public int hashCode() {
         int hash = 7;

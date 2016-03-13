@@ -6,6 +6,7 @@
 package byui.cit260.Andromeda260.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  *
@@ -13,48 +14,61 @@ import java.io.Serializable;
  */
 public class MaterialResources implements Serializable{
     
-    private int iridium;
+    private String description;
     
-    private int palladium;
+    private int quantity;
     
-    private int platinium;
 
+    private Ship ship;
+    
+    private Planet planet;
+    
     public MaterialResources() {
     }
 
-    public int getIridium() {
-        return iridium;
+    public String getDescription() {
+        return description;
     }
 
-    public void setIridium(int iridium) {
-        this.iridium = iridium;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public int getPalladium() {
-        return palladium;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setPalladium(int palladium) {
-        this.palladium = palladium;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
-    public int getPlatinium() {
-        return platinium;
+    
+
+    public Ship getShip() {
+        return ship;
     }
 
-    public void setPlatinium(int platinium) {
-        this.platinium = platinium;
+    public void setShip(Ship ship) {
+        this.ship = ship;
+    }
+
+    public Planet getPlanet() {
+        return planet;
+    }
+
+    public void setPlanet(Planet planet) {
+        this.planet = planet;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 89 * hash + this.iridium;
-        hash = 89 * hash + this.palladium;
-        hash = 89 * hash + this.platinium;
+        hash = 97 * hash + Objects.hashCode(this.description);
+        hash = 97 * hash + this.quantity;
         return hash;
     }
 
+  
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -67,21 +81,19 @@ public class MaterialResources implements Serializable{
             return false;
         }
         final MaterialResources other = (MaterialResources) obj;
-        if (this.iridium != other.iridium) {
+        if (this.description != other.description) {
             return false;
         }
-        if (this.palladium != other.palladium) {
+        if (this.quantity != other.quantity) {
             return false;
         }
-        if (this.platinium != other.platinium) {
-            return false;
-        }
+
         return true;
     }
 
     @Override
     public String toString() {
-        return "MaterialResources{" + "iridium=" + iridium + ", palladium=" + palladium + ", platinium=" + platinium + '}';
+        return "MaterialResources{" + "iridium=" + description + ", palladium=" + quantity +'}';
     }
     
     

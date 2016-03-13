@@ -1,11 +1,60 @@
 package byui.cit260.Andromeda260.control;
 
+import andromeda260.Andromeda260;
+import byui.cit260.Andromeda260.model.Game;
+import byui.cit260.Andromeda260.model.Map;
+import byui.cit260.Andromeda260.model.Scene;
+import byui.cit260.Andromeda260.model.SceneType;
 import byui.cit260.Andromeda260.model.Ship;
 
 /*
  * Authors Dean Boyer & Rueben Gonzales
  */
 public class MapControl {
+
+    static void moveToEarth(Map map) {
+        System.out.println("Function called");
+    }
+
+    static Map createMap() {
+       Map map = new Map(5,5);
+       Scene[] scene = createScene();
+       GameControl.assignSceneToPlanet(map, scene);
+       return map;
+    }
+
+    private static Scene[] createScene() {
+        Game game = Andromeda260.getGame();
+        
+        Scene[] scenes = new Scene[SceneType.values().length];
+        
+        Scene startingScene = new Scene();
+        startingScene.setDescription("Some generic Description. Start.");
+        
+        scenes[SceneType.start.ordinal()] = startingScene;
+        
+        Scene finishScene = new Scene();
+        finishScene.setDescription("Another generic Description. End.");
+        
+        scenes[SceneType.end.ordinal()] = finishScene;
+        
+        Scene hostileScene = new Scene();
+        hostileScene.setDescription("Another generic Description. hostileScene.");
+        
+        scenes[SceneType.hostile.ordinal()] = hostileScene;
+        
+        Scene friendlyScene = new Scene();
+        friendlyScene.setDescription("Another generic Description.friendlyScene");
+        
+        scenes[SceneType.friendly.ordinal()] = friendlyScene;
+        
+        Scene repairYardScene = new Scene();
+        repairYardScene.setDescription("Another generic Description.repairYardScene");
+        
+        scenes[SceneType.friendly.ordinal()] = repairYardScene;
+        
+        return scenes;
+    }
      public double distanceToPlanet(double pointA, double pointB)
         {
             double distance = 0;

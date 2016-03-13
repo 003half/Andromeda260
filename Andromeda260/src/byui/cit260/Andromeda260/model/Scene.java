@@ -12,33 +12,24 @@ import java.util.Objects;
  *
  * @author rubengonzalezflores
  */
-public class Player implements Serializable {
-    // Class instance variables
-    private String name;
-    private Game game;
-    public Player() {
-    }
-    
-    public String getName() {
-        return name;
+public class Scene implements Serializable {
+    private String description;
+
+    public Scene() {
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getDescription() {
+        return description;
     }
 
-    public Game getGame() {
-        return game;
-    }
-
-    public void setGame(Game game) {
-        this.game = game;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 47 * hash + Objects.hashCode(this.name);
+        int hash = 5;
+        hash = 59 * hash + Objects.hashCode(this.description);
         return hash;
     }
 
@@ -53,8 +44,8 @@ public class Player implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Player other = (Player) obj;
-        if (!Objects.equals(this.name, other.name)) {
+        final Scene other = (Scene) obj;
+        if (!Objects.equals(this.description, other.description)) {
             return false;
         }
         return true;
@@ -62,9 +53,7 @@ public class Player implements Serializable {
 
     @Override
     public String toString() {
-        return "Player{" + "name=" + name + '}';
+        return "Scene{" + "description=" + description + '}';
     }
-    
-    
     
 }
