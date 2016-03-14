@@ -20,9 +20,10 @@ public class Ship implements Serializable{
     private double armor;
     private double weapons;
 
-    private LogBook logbook;
+    LogBook logbook;
     ArrayList<Game> game;
-    private MaterialResources[] materialResources;
+    MaterialResources[] materialResources;
+    Planet currentLocation;
     
     public Ship() {
         this.shipName = ("Excelsior");

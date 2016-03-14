@@ -34,18 +34,35 @@ public class GameControl {
     }
 
     public static void createNewGame(Player player) {
-        Game game = new Game();
-        game.setPlayer(player);
-        Andromeda260.setGame(game);
+        Game gameOn = new Game();
+        gameOn.setPlayer(player);
         MaterialResources[] materialResources = GameControl.createMaterialResources();
-        game.setMaterialResources(materialResources);
+        gameOn.setMaterialResources(materialResources);
         Ship ship = new Ship();
-        game.setShip(ship);
+        gameOn.setShip(ship);
         Map map = MapControl.createMap();
-        game.setMap(map);
+        gameOn.setMap(map);
         MapControl.moveToEarth(map);
+        Andromeda260.setGame(gameOn);
     }
-
+    
+  /* This function no longer necessary
+    static void assignSceneToPlanet(Map map, Scene[] scenes) {
+        Planet[][] planets = map.getPlanet();
+        int row = 0;
+        int col = 0;
+        for (; row < planets.length; row++){
+            for (; col < planets[1].length; col++){
+                Planet here = new Planet();
+                //random location type
+                here.setScene(SceneType.values()[(int) (Math.random() * 2 + 1 )]);
+                here.setRow(row);
+                here.setColumn(col);
+            }
+        }
+    }
+    */
+    
     private static MaterialResources[] createMaterialResources() {
         MaterialResources[] materialResources = new MaterialResources[4];
         
@@ -70,37 +87,6 @@ public class GameControl {
         materialResources[Resource.coins.ordinal()] = coins;
         
         return materialResources;
-    }
-
-    static void assignSceneToPlanet(Map map, Scene[] scenes) {
-        Planet[][] planets = map.getPlanet();
-        
-        planets[0][0].setScene(scenes[SceneType.start.ordinal()]);
-        planets[0][1].setScene(scenes[SceneType.hostile.ordinal()]);
-        planets[0][2].setScene(scenes[SceneType.friendly.ordinal()]);
-        planets[0][3].setScene(scenes[SceneType.friendly.ordinal()]);
-        planets[0][4].setScene(scenes[SceneType.repairYard.ordinal()]);
-        planets[1][0].setScene(scenes[SceneType.hostile.ordinal()]);
-        planets[1][1].setScene(scenes[SceneType.friendly.ordinal()]);
-        planets[1][2].setScene(scenes[SceneType.friendly.ordinal()]);
-        planets[1][3].setScene(scenes[SceneType.hostile.ordinal()]);
-        planets[1][4].setScene(scenes[SceneType.friendly.ordinal()]);
-        planets[2][0].setScene(scenes[SceneType.friendly.ordinal()]);
-        planets[2][1].setScene(scenes[SceneType.friendly.ordinal()]);
-        planets[2][2].setScene(scenes[SceneType.friendly.ordinal()]);
-        planets[2][3].setScene(scenes[SceneType.hostile.ordinal()]);
-        planets[2][4].setScene(scenes[SceneType.friendly.ordinal()]);
-        planets[3][0].setScene(scenes[SceneType.hostile.ordinal()]);
-        planets[3][1].setScene(scenes[SceneType.repairYard.ordinal()]);
-        planets[3][2].setScene(scenes[SceneType.friendly.ordinal()]);
-        planets[3][3].setScene(scenes[SceneType.hostile.ordinal()]);
-        planets[3][4].setScene(scenes[SceneType.friendly.ordinal()]);
-        planets[4][0].setScene(scenes[SceneType.hostile.ordinal()]);
-        planets[4][1].setScene(scenes[SceneType.hostile.ordinal()]);
-        planets[4][2].setScene(scenes[SceneType.friendly.ordinal()]);
-        planets[4][3].setScene(scenes[SceneType.repairYard.ordinal()]);
-        planets[4][4].setScene(scenes[SceneType.end.ordinal()]);
-        
     }
     
     public static MaterialResources[] getSortedInventoryList(){

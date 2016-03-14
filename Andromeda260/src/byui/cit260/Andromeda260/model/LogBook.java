@@ -18,7 +18,7 @@ public class LogBook implements Serializable{
     private String encounter;
     private String credits;
     
-    private Ship ship;
+    Ship ship;
     
     public LogBook() {
     }

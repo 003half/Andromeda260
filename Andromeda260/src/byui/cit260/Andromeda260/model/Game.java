@@ -13,10 +13,10 @@ import java.io.Serializable;
  */
 public class Game implements Serializable {
     
-    private Player player;
-    private Ship ship;
-    private Map map;
-    private MaterialResources[] materialResources;
+    Player player;
+    Ship ship;
+    Map map;
+    MaterialResources[] materialResources;
     
     public Game(){
     }

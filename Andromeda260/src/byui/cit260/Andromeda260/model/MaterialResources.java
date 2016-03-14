@@ -15,13 +15,10 @@ import java.util.Objects;
 public class MaterialResources implements Serializable{
     
     private String description;
-    
     private int quantity;
     
-
-    private Ship ship;
-    
-    private Planet planet;
+    Ship ship;
+    Planet planet;
     
     public MaterialResources() {
     }

@@ -14,6 +14,7 @@ import java.util.Objects;
  */
 public class Scene implements Serializable {
     private String description;
+    private SceneType type;
 
     public Scene() {
     }
@@ -24,6 +25,14 @@ public class Scene implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public SceneType getType() {
+        return type;
+    }
+
+    public void setType(SceneType type) {
+        this.type = type;
     }
 
     @Override

@@ -15,7 +15,9 @@ import java.util.Objects;
 public class Player implements Serializable {
     // Class instance variables
     private String name;
-    private Game game;
+    
+    Game game;
+    
     public Player() {
     }
     

@@ -16,19 +16,14 @@ import java.util.Objects;
 public class Planet implements Serializable {
     
     private String name;
-    
     private String description;
-    
-    private String system;
     private int column;
     private int row;
     private Boolean visited;
-    
     private Boolean explored;
 
-    private MaterialResources[] materialResources;
-    
-    private Scene scene;
+    MaterialResources[] materialResources;
+    SceneType scene;
    
     
     public Planet() {
@@ -48,14 +43,6 @@ public class Planet implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getSystem() {
-        return system;
-    }
-
-    public void setSystem(String system) {
-        this.system = system;
     }
 
     public Boolean getVisited() {
@@ -83,11 +70,11 @@ public class Planet implements Serializable {
         this.materialResources = materialResources;
     }
 
-    public Scene getScene() {
+    public SceneType getScene() {
         return scene;
     }
 
-    public void setScene(Scene scene) {
+    public void setScene(SceneType scene) {
         this.scene = scene;
     }
 
@@ -112,7 +99,6 @@ public class Planet implements Serializable {
         int hash = 7;
         hash = 67 * hash + Objects.hashCode(this.name);
         hash = 67 * hash + Objects.hashCode(this.description);
-        hash = 67 * hash + Objects.hashCode(this.system);
         hash = 67 * hash + this.column;
         hash = 67 * hash + this.row;
         hash = 67 * hash + Objects.hashCode(this.visited);
@@ -146,9 +132,6 @@ public class Planet implements Serializable {
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
-        if (!Objects.equals(this.system, other.system)) {
-            return false;
-        }
         if (!Objects.equals(this.visited, other.visited)) {
             return false;
         }
@@ -158,14 +141,11 @@ public class Planet implements Serializable {
         if (!Arrays.deepEquals(this.materialResources, other.materialResources)) {
             return false;
         }
-        if (!Objects.equals(this.scene, other.scene)) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Planet{" + "name=" + name + ", description=" + description + ", system=" + system + ", column=" + column + ", row=" + row + ", visited=" + visited + ", explored=" + explored + ", materialResources=" + materialResources + ", scene=" + scene + '}';
+        return "Planet{" + "name=" + name + ", description=" + description + ", column=" + column + ", row=" + row + ", visited=" + visited + ", explored=" + explored + '}';
     }
 }

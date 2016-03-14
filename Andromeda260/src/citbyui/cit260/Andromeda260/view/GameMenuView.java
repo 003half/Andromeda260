@@ -1,6 +1,10 @@
 package citbyui.cit260.Andromeda260.view;
 
+import andromeda260.Andromeda260;
 import byui.cit260.Andromeda260.control.GameControl;
+import byui.cit260.Andromeda260.control.MapControl;
+import byui.cit260.Andromeda260.model.Game;
+import byui.cit260.Andromeda260.model.Map;
 import byui.cit260.Andromeda260.model.MaterialResources;
 import byui.cit260.Andromeda260.model.Planet;
 
@@ -9,11 +13,11 @@ import byui.cit260.Andromeda260.model.Planet;
  * @author Ruben Gonzalez Flores & Dean Boyer
  */
 public class GameMenuView extends View{
-    private static final int NUM_ROWS = 5;
-    private static final int NUM_COLUMNS = 5;
+
     public GameMenuView(){
         this.menu = "\n"
             + "\nA - Attack the natives"
+            + "\nM - Display the Map"
             + "\nL - Leave Location"
             + "\nS - Scout the Current Location"
             + "\nI - Inventory"
@@ -29,8 +33,10 @@ public class GameMenuView extends View{
             case 'A':
                 attackNatives();
                 break;
+            case 'M':
+                displayMap(Andromeda260.getGame().getMap().getPlanet());
             case 'L':
-                displayMap();
+                //need function for movement here
                 break;
             case 'S':
                 scoutCurrentLocation();
@@ -58,14 +64,9 @@ public class GameMenuView extends View{
         
     }
 
-    private void displayMap() {
-        
-        System.out.println("called displayMap");
-        System.out.println("Map!");
-        System.out.println("0 | 1 | 2 | 3 | 4 ");
-        for (int i = 0; i < NUM_ROWS; i++){
-            System.out.println("\n\t");
-        }
+    private void displayMap(Planet[][] planet) {
+        System.out.println("\nMap of known planets with resources available");
+        System.out.println(Andromeda260.getGame().getMap().getMapString());
     }
 
     private void scoutCurrentLocation() {
