@@ -42,7 +42,7 @@ public class GameControl {
         gameOn.setShip(ship);
         Map map = MapControl.createMap();
         gameOn.setMap(map);
-        MapControl.moveToEarth(map);
+        player.setLocation(map.getLocation(0, 0));
         Andromeda260.setGame(gameOn);
     }
     

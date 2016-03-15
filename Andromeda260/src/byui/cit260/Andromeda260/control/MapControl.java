@@ -20,10 +20,6 @@ public class MapControl {
         return map;
     }
 
-    static void moveToEarth(Map map) {
-        System.out.println("Function called");
-    }
-
     static Map createMap() {
         int noOfRows = 3;
         int noOfColumns = (int) (Math.random()* 10) + 3;

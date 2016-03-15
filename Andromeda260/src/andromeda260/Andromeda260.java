@@ -12,8 +12,8 @@ import citbyui.cit260.Andromeda260.view.StartProgramView;
  */
 public class Andromeda260 {
     
-    private static Game game;
-    private static Player player;
+    public static Game game;
+    public static Player player;
 
     public static void setGame(Game game) {
         Andromeda260.game = game;

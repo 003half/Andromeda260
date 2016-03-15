@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package byui.cit260.Andromeda260.model;
 
 import java.io.Serializable;
@@ -11,11 +6,11 @@ import java.util.Objects;
 
 /**
  *
- * @author rubengonzalezflores
+ * @author rubengonzalezflores & Dean Boyer
  */
 public class Map implements Serializable {
-    private int noOfRows;
-    private int noOfColumns;
+    public int noOfRows;
+    public int noOfColumns;
     
     ArrayList<Game> game;
     Planet[][] planets;
@@ -50,14 +45,17 @@ public class Map implements Serializable {
         
         for (int row = 0; row < noOfRows; row++){
             for (int col = 0; col < noOfColumns; col++){
-                if (planets[row][col].getExplored() == true){
+                if (planets[row][col].getVisited() == true){
                 rtn += "X";} else rtn += "O";
                 rtn += "\t";
             }
             rtn +="\n";
         }
-        
         return rtn;
+    }
+    
+    public Planet getLocation (int row, int col){
+        return planets[row][col];
     }
 
     public ArrayList<Game> getGame() {

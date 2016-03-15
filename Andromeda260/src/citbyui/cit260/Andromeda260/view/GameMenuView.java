@@ -70,9 +70,11 @@ public class GameMenuView extends View{
     }
 
     private void scoutCurrentLocation() {
-        ScoutingPlanetView scoutingPlanet = new ScoutingPlanetView();
-        scoutingPlanet.display();
-        
+        if (Andromeda260.player.getLocation().getVisited() == true){
+            System.out.println("\nYou have already been here");
+        } else {
+            ScoutingPlanetView scoutingPlanet = new ScoutingPlanetView();
+            scoutingPlanet.display();}
     }
     
     private void helpMenu() {
@@ -94,8 +96,6 @@ public class GameMenuView extends View{
         for (MaterialResources materialResources : materials){
             System.out.println(materialResources.getDescription() + ",\t"+
                                materialResources.getQuantity() + "\t   ");
-            
         }
-        
     }
 }

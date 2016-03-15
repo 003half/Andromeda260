@@ -17,6 +17,7 @@ public class Player implements Serializable {
     private String name;
     
     Game game;
+    Planet location;
     
     public Player() {
     }
@@ -37,6 +38,14 @@ public class Player implements Serializable {
         this.game = game;
     }
 
+    public Planet getLocation() {
+        return location;
+    }
+
+    public void setLocation(Planet location) {
+        this.location = location;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 7;

@@ -1,5 +1,6 @@
 package citbyui.cit260.Andromeda260.view;
 
+import andromeda260.Andromeda260;
 import byui.cit260.Andromeda260.control.MapControl;
 import static java.lang.Math.floor;
 import static java.lang.Math.random;
@@ -54,6 +55,7 @@ public class ScoutingPlanetView extends View{
             System.out.println("\nTry again");
         }
         System.out.println("\nHaving guessed close enough, the column opens for you");
+        Andromeda260.player.getLocation().setVisited(true);
     }
     
 }
