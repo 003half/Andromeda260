@@ -90,7 +90,17 @@ public class GameControl {
     }
     
     public static MaterialResources[] getSortedInventoryList(){
-        System.out.println("getSortedInventoryList Called");
-        return null;
+        MaterialResources[] sIL = Andromeda260.getGame().getMaterialResources();
+        return sIL;
     }
+    
+    public static int getInventoryWeight(){
+        MaterialResources[] sIL = Andromeda260.getGame().getMaterialResources();
+        int iW = 0;
+        for (MaterialResources sIL1 : sIL) {
+            iW += sIL1.getQuantity();
+        }
+        return iW;
+    }
+    
 }

@@ -97,5 +97,7 @@ public class GameMenuView extends View{
             System.out.println(materialResources.getDescription() + ",\t"+
                                materialResources.getQuantity() + "\t   ");
         }
+        int weight = GameControl.getInventoryWeight();
+        System.out.println("\nand they weigh " + weight + " tons.");
     }
 }
