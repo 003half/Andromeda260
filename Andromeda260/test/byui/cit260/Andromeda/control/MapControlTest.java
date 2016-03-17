@@ -48,7 +48,7 @@ public class MapControlTest {
         double pointB = 42;
         MapControl instance = new MapControl();
         double expResult = 1;
-        double result = instance.distanceToPlanet(pointA, pointB);
+        double result = instance.olddistanceToPlanet(pointA, pointB);
         assertEquals(expResult, result, 0.0);
 
     }
@@ -67,7 +67,7 @@ public class MapControlTest {
         double platinum = 5;
         MapControl instance = new MapControl();
         double expResult = 76.5;
-        double result = instance.fuelNeeded(pointA, pointB, armor, iridium, palladium, platinum);
+        double result = instance.oldfuelNeeded(pointA, pointB, armor, iridium, palladium, platinum);
         assertEquals(expResult, result, 0.0);
 
     }
@@ -83,7 +83,7 @@ public class MapControlTest {
         double platinum = 5;
         MapControl instance = new MapControl();
         double expResult = -1;
-        double result = instance.fuelNeeded(pointA, pointB, armor, iridium, palladium, platinum);
+        double result = instance.oldfuelNeeded(pointA, pointB, armor, iridium, palladium, platinum);
         assertEquals(expResult, result, 0.0);
 
     }
@@ -99,7 +99,7 @@ public class MapControlTest {
         double platinum = 5;
         MapControl instance = new MapControl();
         double expResult = -1;
-        double result = instance.fuelNeeded(pointA, pointB, armor, iridium, palladium, platinum);
+        double result = instance.oldfuelNeeded(pointA, pointB, armor, iridium, palladium, platinum);
         assertEquals(expResult, result, 0.0);
 
     }
@@ -115,7 +115,7 @@ public class MapControlTest {
         double platinum = 5;
         MapControl instance = new MapControl();
         double expResult = -1;
-        double result = instance.fuelNeeded(pointA, pointB, armor, iridium, palladium, platinum);
+        double result = instance.oldfuelNeeded(pointA, pointB, armor, iridium, palladium, platinum);
         assertEquals(expResult, result, 0.0);
 
     }
@@ -131,7 +131,7 @@ public class MapControlTest {
         double platinum = 15001.5;
         MapControl instance = new MapControl();
         double expResult = -1;
-        double result = instance.fuelNeeded(pointA, pointB, armor, iridium, palladium, platinum);
+        double result = instance.oldfuelNeeded(pointA, pointB, armor, iridium, palladium, platinum);
         assertEquals(expResult, result, 0.0);
 
     }
@@ -147,7 +147,7 @@ public class MapControlTest {
         double platinum = 100;
         MapControl instance = new MapControl();
         double expResult = 326;
-        double result = instance.fuelNeeded(pointA, pointB, armor, iridium, palladium, platinum);
+        double result = instance.oldfuelNeeded(pointA, pointB, armor, iridium, palladium, platinum);
         assertEquals(expResult, result, 0.0);
 
     }
@@ -163,7 +163,7 @@ public class MapControlTest {
         double platinum = 34;
         MapControl instance = new MapControl();
         double expResult = 0;
-        double result = instance.fuelNeeded(pointA, pointB, armor, iridium, palladium, platinum);
+        double result = instance.oldfuelNeeded(pointA, pointB, armor, iridium, palladium, platinum);
         assertEquals(expResult, result, 0.0);
 
     }
@@ -179,7 +179,7 @@ public class MapControlTest {
         double platinum = 100;
         MapControl instance = new MapControl();
         double expResult = 10301;
-        double result = instance.fuelNeeded(pointA, pointB, armor, iridium, palladium, platinum);
+        double result = instance.oldfuelNeeded(pointA, pointB, armor, iridium, palladium, platinum);
         assertEquals(expResult, result, 0.0);
 
     }

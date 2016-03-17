@@ -1,4 +1,4 @@
-package citbyui.cit260.Andromeda260.view;
+package byui.cit260.Andromeda260.view;
 
 import java.util.Scanner;
 

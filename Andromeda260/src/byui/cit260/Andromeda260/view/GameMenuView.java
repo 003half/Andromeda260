@@ -1,10 +1,8 @@
-package citbyui.cit260.Andromeda260.view;
+package byui.cit260.Andromeda260.view;
 
 import andromeda260.Andromeda260;
 import byui.cit260.Andromeda260.control.GameControl;
-import byui.cit260.Andromeda260.control.MapControl;
-import byui.cit260.Andromeda260.model.Game;
-import byui.cit260.Andromeda260.model.Map;
+import byui.cit260.Andromeda260.control.ShipControl;
 import byui.cit260.Andromeda260.model.MaterialResources;
 import byui.cit260.Andromeda260.model.Planet;
 
@@ -35,8 +33,9 @@ public class GameMenuView extends View{
                 break;
             case 'M':
                 displayMap(Andromeda260.getGame().getMap().getPlanet());
+                break;
             case 'L':
-                //need function for movement here
+                leaveLocation();
                 break;
             case 'S':
                 scoutCurrentLocation();
@@ -66,11 +65,14 @@ public class GameMenuView extends View{
 
     private void displayMap(Planet[][] planet) {
         System.out.println("\nMap of known planets with resources available");
+        System.out.println("\nThe narrow band of space available is due to your ships"
+                + "limited range.");
         System.out.println(Andromeda260.getGame().getMap().getMapString());
     }
 
     private void scoutCurrentLocation() {
-        if (Andromeda260.player.getLocation().getVisited() == true){
+        Planet currentLocation = ShipControl.getCurrentPlanet();
+        if (currentLocation.getVisited() == true){
             System.out.println("\nYou have already been here");
         } else {
             ScoutingPlanetView scoutingPlanet = new ScoutingPlanetView();
@@ -99,5 +101,12 @@ public class GameMenuView extends View{
         }
         int weight = GameControl.getInventoryWeight();
         System.out.println("\nand they weigh " + weight + " tons.");
+        double fuelOnHand = ShipControl.fuelAvailable() * 100;
+        System.out.println("\nYou have " + fuelOnHand + "% of a fully charged battery available for your warp drive");
+    }
+
+    private void leaveLocation() {
+        MovementView movementView = new MovementView();
+        movementView.display();
     }
 }

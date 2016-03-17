@@ -7,11 +7,8 @@ import andromeda260.Andromeda260;
 import byui.cit260.Andromeda260.model.Game;
 import byui.cit260.Andromeda260.model.Map;
 import byui.cit260.Andromeda260.model.MaterialResources;
-import byui.cit260.Andromeda260.model.Planet;
 import byui.cit260.Andromeda260.model.Player;
 import byui.cit260.Andromeda260.model.Resource;
-import byui.cit260.Andromeda260.model.Scene;
-import byui.cit260.Andromeda260.model.SceneType;
 import byui.cit260.Andromeda260.model.Ship;
 
 /**
@@ -100,6 +97,7 @@ public class GameControl {
         for (MaterialResources sIL1 : sIL) {
             iW += sIL1.getQuantity();
         }
+        iW -= sIL[Resource.coins.ordinal()].getQuantity();
         return iW;
     }
     

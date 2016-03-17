@@ -60,12 +60,11 @@ public class Planet implements Serializable {
     public void setExplored(Boolean explored) {
         this.explored = explored;
     }
-
-
+    
     public MaterialResources[] getMaterialResources() {
         return materialResources;
     }
-
+    
     public void setMaterialResources(MaterialResources[] materialResources) {
         this.materialResources = materialResources;
     }

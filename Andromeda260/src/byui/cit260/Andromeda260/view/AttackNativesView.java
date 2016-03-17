@@ -1,9 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package citbyui.cit260.Andromeda260.view;
+package byui.cit260.Andromeda260.view;
 
 import static java.lang.Math.random;
 
@@ -27,13 +22,14 @@ public class AttackNativesView extends View{
                 + "\ndiplomatic mission.";
     }
     
-     @Override
+    @Override
     public void doAction(char selection) {
          switch (selection) {
             case 'A':
                 attack();
                 break;
             case 'L':
+                System.out.println("\nLoser");
                 break;
              case 'Q':
                 break;
@@ -41,7 +37,6 @@ public class AttackNativesView extends View{
                 System.out.println("Invalid option");
                 break;
         }
-        
     }
 
     private void attack() {

@@ -1,7 +1,9 @@
-package citbyui.cit260.Andromeda260.view;
+package byui.cit260.Andromeda260.view;
 
 import andromeda260.Andromeda260;
 import byui.cit260.Andromeda260.control.MapControl;
+import byui.cit260.Andromeda260.control.ShipControl;
+import byui.cit260.Andromeda260.model.Planet;
 import static java.lang.Math.floor;
 import static java.lang.Math.random;
 import java.util.Scanner;
@@ -55,7 +57,11 @@ public class ScoutingPlanetView extends View{
             System.out.println("\nTry again");
         }
         System.out.println("\nHaving guessed close enough, the column opens for you");
-        Andromeda260.player.getLocation().setVisited(true);
+        //Andromeda260.player.getLocation().setVisited(true);
+        Planet here = ShipControl.getCurrentPlanet();
+        int row = here.getRow();
+        int column = here.getColumn();
+        Andromeda260.game.getMap().getPlanet()[row][column].setVisited(true); // getPlanet[row][column]();
     }
     
 }

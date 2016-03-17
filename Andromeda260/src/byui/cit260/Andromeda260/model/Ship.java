@@ -19,6 +19,7 @@ public class Ship implements Serializable{
     private double shipIntegrity;
     private double armor;
     private double weapons;
+    private double fuel;
 
     LogBook logbook;
     ArrayList<Game> game;
@@ -28,13 +29,11 @@ public class Ship implements Serializable{
     public Ship() {
         this.shipName = ("Excelsior");
         this.description = ("The great. The mighty. The Excelsior.");
-        this.shipIntegrity = 0;
-        this.armor = 0;
-        this.weapons = 0;
-        
+        this.shipIntegrity = 1;
+        this.armor = 1;
+        this.weapons = 1;
+        this.fuel = 10;
     }
-
-    
     
     public String getShipName() {
         return shipName;
@@ -76,7 +75,14 @@ public class Ship implements Serializable{
         this.weapons = weapons;
     }
 
+    public double getFuel() {
+        return fuel;
+    }
 
+    public void setFuel(double fuel) {
+        this.fuel = fuel;
+    }
+    
     public LogBook getLogbook() {
         return logbook;
     }
@@ -99,6 +105,14 @@ public class Ship implements Serializable{
 
     public void setMaterialResources(MaterialResources[] materialResources) {
         this.materialResources = materialResources;
+    }
+
+    public Planet getCurrentLocation() {
+        return currentLocation;
+    }
+
+    public void setCurrentLocation(Planet currentLocation) {
+        this.currentLocation = currentLocation;
     }
 
     @Override

@@ -1,5 +1,5 @@
 
-package citbyui.cit260.Andromeda260.view;
+package byui.cit260.Andromeda260.view;
 
 import andromeda260.Andromeda260;
 import byui.cit260.Andromeda260.control.GameControl;

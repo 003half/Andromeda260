@@ -5,7 +5,7 @@ package andromeda260;
 
 import byui.cit260.Andromeda260.model.Game;
 import byui.cit260.Andromeda260.model.Player;
-import citbyui.cit260.Andromeda260.view.StartProgramView;
+import byui.cit260.Andromeda260.view.StartProgramView;
 /**
  *
  * @author Ruben Gonzalez Flores & Dean Boyer
@@ -37,10 +37,13 @@ public class Andromeda260 {
     public static void main(String[] args) {
         
         StartProgramView startProgramView = new StartProgramView();
-        
+        try {
         startProgramView.startProgram();
-        
-        
+        } catch (Throwable te){
+            System.out.println(te.getMessage());
+            te.printStackTrace();
+            startProgramView.display();
+        }
     }
     
 }

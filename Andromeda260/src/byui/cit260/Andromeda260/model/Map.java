@@ -41,15 +41,22 @@ public class Map implements Serializable {
     }
     
     public String getMapString(){
-        String rtn = "";
+        String rtn = "\t";
+        
+        for (int i = 1; (i - 1) < noOfColumns; i++){
+            rtn += i + "\t";
+        }
         
         for (int row = 0; row < noOfRows; row++){
+            rtn +="\n";
+            rtn += (row + 1) + "\t";
             for (int col = 0; col < noOfColumns; col++){
                 if (planets[row][col].getVisited() == true){
-                rtn += "X";} else rtn += "O";
+                    rtn += "X";} else rtn += "O";
+                if (planets[row][col].getExplored() == true){
+                    rtn += "e";}
                 rtn += "\t";
             }
-            rtn +="\n";
         }
         return rtn;
     }
