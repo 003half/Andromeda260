@@ -11,10 +11,6 @@ import byui.cit260.Andromeda260.model.Player;
 import byui.cit260.Andromeda260.model.Resource;
 import byui.cit260.Andromeda260.model.Ship;
 
-/**
- *
- * @author rubengonzalezflores
- */
 public class GameControl {
 
     public static Player createPlayer(String name) {
@@ -25,7 +21,7 @@ public class GameControl {
        Player player = new Player();
        player.setName(name);
        
-       Andromeda260.setPlayer(player); // save the player
+       andromeda260.Andromeda260.setPlayer(player); // save the player
        
        return player;
     }
@@ -40,7 +36,7 @@ public class GameControl {
         Map map = MapControl.createMap();
         gameOn.setMap(map);
         player.setLocation(map.getLocation(0, 0));
-        Andromeda260.setGame(gameOn);
+        andromeda260.Andromeda260.setGame(gameOn);
     }
     
   /* This function no longer necessary
