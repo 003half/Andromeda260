@@ -16,9 +16,10 @@ public class LogBook implements Serializable{
     
     private String explored;
     private String encounter;
-    private String credits;
+    private int creditsColected;
     
     Ship ship;
+    Game game;
     
     public LogBook() {
     }
@@ -39,12 +40,12 @@ public class LogBook implements Serializable{
         this.encounter = encounter;
     }
 
-    public String getCredits() {
-        return credits;
+    public int getCreditsColected() {
+        return creditsColected;
     }
 
-    public void setCredits(String credits) {
-        this.credits = credits;
+    public void setCreditsColected(int creditsColected) {
+        this.creditsColected = creditsColected;
     }
 
     public Ship getShip() {
@@ -55,18 +56,26 @@ public class LogBook implements Serializable{
         this.ship = ship;
     }
 
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
         hash = 11 * hash + Objects.hashCode(this.explored);
         hash = 11 * hash + Objects.hashCode(this.encounter);
-        hash = 11 * hash + Objects.hashCode(this.credits);
+        hash = 11 * hash + Objects.hashCode(this.creditsColected);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "LogBook{" + "explored=" + explored + ", encounter=" + encounter + ", credits=" + credits + '}';
+        return "LogBook{" + "explored=" + explored + ", encounter=" + encounter + ", credits=" + creditsColected + '}';
     }
     
 
@@ -88,7 +97,7 @@ public class LogBook implements Serializable{
         if (!Objects.equals(this.encounter, other.encounter)) {
             return false;
         }
-        if (!Objects.equals(this.credits, other.credits)) {
+        if (!Objects.equals(this.creditsColected, other.creditsColected)) {
             return false;
         }
         return true;

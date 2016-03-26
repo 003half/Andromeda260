@@ -34,29 +34,29 @@ public class ScoutingPlanetView extends View{
         //At some point we need to insert a way to check if the player has
         //been to this planet before.
         //For now, we will asume they have nevver been to this planet.
-        System.out.println(this.menu);
+        this.console.println(this.menu);
         double height = random() * 100;
         double radius = random() * 10 + 1;
         height = floor(height);
         radius = floor(radius);
         double diameter = radius * 2;
         double totalVolume = MapControl.cylinderVolumeCalculator(height, radius);
-        System.out.println("\nYou measure and find the column is " + height +" units tall.");
-        System.out.println("\nThe column is " + diameter + " units wide");
+        this.console.println("\nYou measure and find the column is " + height +" units tall.");
+        this.console.println("\nThe column is " + diameter + " units wide");
         
-        System.out.println("\nGuess the volume of the column in cubic units");
+        this.console.println("\nGuess the volume of the column in cubic units");
         boolean valid = false;
         while (!valid){
         double guestimate = this.getNumberInput();
-        System.out.println("\nYour guess is " + guestimate);
+        this.console.println("\nYour guess is " + guestimate);
             if ((guestimate == totalVolume) || 
                 (((guestimate + 50) > totalVolume) && guestimate < totalVolume) ||
                 (((guestimate - 50) < totalVolume) && guestimate > totalVolume) ){
                 break;
             }
-            System.out.println("\nTry again");
+            this.console.println("\nTry again");
         }
-        System.out.println("\nHaving guessed close enough, the column opens for you");
+        this.console.println("\nHaving guessed close enough, the column opens for you");
         //Andromeda260.player.getLocation().setVisited(true);
         Planet here = ShipControl.getCurrentPlanet();
         int row = here.getRow();

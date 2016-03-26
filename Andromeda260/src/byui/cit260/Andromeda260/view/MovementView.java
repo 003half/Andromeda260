@@ -23,7 +23,7 @@ public class MovementView extends View{
     @Override
     public void display(){
         //display instructions
-        System.out.println(this.menu);
+        this.console.println(this.menu);
         //get position
         Planet currentLocation = andromeda260.Andromeda260.getPlayer().getLocation();
         int curow = currentLocation.getRow();
@@ -36,14 +36,14 @@ public class MovementView extends View{
             try {
                 try {
                     //display map
-                    System.out.println(andromeda260.Andromeda260.getGame().getMap().getMapString());
+                    this.console.println(andromeda260.Andromeda260.getGame().getMap().getMapString());
                     //display position
-                    System.out.println("You are currently at row " + (curow + 1) + " in column " + (cucolumn + 1) );
+                    this.console.println("You are currently at row " + (curow + 1) + " in column " + (cucolumn + 1) );
                     //get row destination
-                    System.out.println("What row of planets would you like to venture towards? (1, 2, or 3)");
+                    this.console.println("What row of planets would you like to venture towards? (1, 2, or 3)");
                     row = (int) (getNumberInput() - 1);
                     //get column destination
-                    System.out.println("What column of planets in row " + (row + 1) + " would you like to visit?");
+                    this.console.println("What column of planets in row " + (row + 1) + " would you like to visit?");
                     column = (int) (getNumberInput() - 1);
                     // calculate distance to new location
                     double distance = MapControl.distanceToPlanet(curow, cucolumn, row, column);
@@ -51,19 +51,19 @@ public class MovementView extends View{
                     fuelN = MapControl.fuelNeeded(distance);
                     double fuelA = ShipControl.fuelAvailable();
                     if (fuelA >= fuelN){
-                        System.out.println("You have enough fuel to get there");
+                        this.console.println("You have enough fuel to get there");
                     }
-                    else {System.out.println("You don't have enough fuel to get there."
-                            + "\nTry again.");}
+                    else {ErrorView.display(this.getClass().getName(), ("You don't have enough fuel to get there."
+                            + "\nTry again."));}
                 } catch (NumberFormatException nfe) {
-                    System.out.println("Lets try that again.");
+                    ErrorView.display(this.getClass().getName(), "Invalid option, Lets try that again.");
                 }
                 andromeda260.Andromeda260.getPlayer().getLocation().setColumn(column);
                 andromeda260.Andromeda260.getPlayer().getLocation().setRow(row);
                 Planet destination = ShipControl.getCurrentPlanet();
                 valid = true;
             } catch (ArrayIndexOutOfBoundsException aioobe) {
-                System.out.println("\nThe coordinates you wish to explore do not exist."
+                ErrorView.display(this.getClass().getName(), "\nThe coordinates you wish to explore do not exist."
                         + "\nYour navigator looks at you in disbelief");
                 andromeda260.Andromeda260.getPlayer().getLocation().setColumn(cucolumn);
                 andromeda260.Andromeda260.getPlayer().getLocation().setRow(curow);

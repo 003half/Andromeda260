@@ -36,24 +36,24 @@ public class HelpMenuView extends View{
              case 'Q':
                  break;
              default:
-                 System.out.println("Invalid option");
+                 this.console.println("Invalid option");
                  break;
          }
     }
     
     private void aboutGame() {
-        System.out.println("What is this game about");
+        this.console.println("What is this game about");
     }
 
     private void howToPlay() {
-        System.out.println("Teach them how to play");
+        this.console.println("Teach them how to play");
     }
 
     private void objectives() {
-        System.out.println("What are the objectives");
+        this.console.println("What are the objectives");
     }
 
     private void movementHelp() {
-        System.out.println("Movement is expensive, be very careful");
+        this.console.println("Movement is expensive, be very careful");
     }
 }

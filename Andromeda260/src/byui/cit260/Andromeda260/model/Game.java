@@ -17,6 +17,7 @@ public class Game implements Serializable {
     Ship ship;
     Map map;
     MaterialResources[] materialResources;
+    LogBook captainsLog;
     
     public Game(){
     }
@@ -61,6 +62,14 @@ public class Game implements Serializable {
 
     public void setMaterialResources(MaterialResources[] materialResources) {
         this.materialResources = materialResources;
+    }
+
+    public LogBook getCaptainsLog() {
+        return captainsLog;
+    }
+
+    public void setCaptainsLog(LogBook captainsLog) {
+        this.captainsLog = captainsLog;
     }
 
     

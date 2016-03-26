@@ -1,5 +1,6 @@
 package byui.cit260.Andromeda260.model;
 
+import byui.cit260.Andromeda260.view.ErrorView;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -12,7 +13,7 @@ public class Map implements Serializable {
     public int noOfRows;
     public int noOfColumns;
     
-    ArrayList<Game> game;
+    Game game;
     Planet[][] planets;
     
     //public Map() {
@@ -22,7 +23,7 @@ public class Map implements Serializable {
         this.noOfRows = noOfRows;
         this.noOfColumns = noOfColumns;
         if (noOfRows < 1 || noOfColumns < 1){
-            System.out.println("The number of rows and columns mus be >zero");
+            ErrorView.display(this.getClass().getName(), "The number of rows and columns mus be >zero");
             return;
         }
         this.planets = new Planet[noOfRows][noOfColumns];
@@ -65,11 +66,11 @@ public class Map implements Serializable {
         return planets[row][col];
     }
 
-    public ArrayList<Game> getGame() {
+    public Game getGame() {
         return game;
     }
 
-    public void setGame(ArrayList<Game> game) {
+    public void setGame(Game game) {
         this.game = game;
     }
 

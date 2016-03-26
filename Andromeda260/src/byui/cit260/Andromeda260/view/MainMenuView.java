@@ -14,7 +14,6 @@ public class MainMenuView extends View {
         this.menu = "\n"
                 + "\nN - Start New Game"
                 + "\nL - Load Saved Game"
-                + "\nS - Save Current Game"
                 + "\nH - Help Menu"
                 + "\nQ - Quit";
     }
@@ -29,16 +28,13 @@ public class MainMenuView extends View {
             case 'L':
                 loadSavedGame();
                 break;
-            case 'S':
-                saveCurrentGame();
-                break;
             case 'H':
                 helpMenu();
                 break;
             case 'Q':
                 break;
             default:
-                System.out.println("Invalid Option");
+                this.console.println("Invalid Option");
                 break;
         }
     }
@@ -51,12 +47,38 @@ public class MainMenuView extends View {
     }
 
     private void loadSavedGame() {
-        System.out.println("CALLED LOAD SAVED GAME - NOT IMPLEMENTED YET");
+        //prompt for and get the name of the file where saved
+        this.console.println("\n\nEnter the file path for the saved game.");
+        
+        String filePath = this.getInput();
+        
+        try {
+            //start a saved game
+            GameControl.getSavedGame(filePath);
+            //display the game menu
+        } catch (Exception ex){
+            ErrorView.display(this.getClass().getName(), ex.getMessage());
+        }
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
+    /*
     private void saveCurrentGame() {
-        System.out.println("CALLED SAVE CURRENT GAME - NOT IMPLEMENTED YET");
+        //prompt for and get the name of the file to save the game in
+        this.console.println("\n\nEnter the file path for file where you wish"
+                + " to save your progress.");
+        String filePath = this.getInput();
+        
+        try {
+            //save the game to the specified file
+            GameControl.saveGame(Andromeda260.getGame(), filePath);
+            this.console.println("\nSave successful");
+        } catch (Exception ex){
+            ErrorView.display(this.getClass().getName(), ex.getMessage());
+        }
     }
+    */
 
     private void helpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
@@ -64,7 +86,7 @@ public class MainMenuView extends View {
     }
 
     private void storyOfTheGame() {
-        System.out.println("\n Put some sort of story here about needing to leave earth");
+        this.console.println("\n Put some sort of story here about needing to leave earth");
     }
     
 }

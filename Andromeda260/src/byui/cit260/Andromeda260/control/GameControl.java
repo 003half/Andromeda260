@@ -4,12 +4,17 @@
 package byui.cit260.Andromeda260.control;
 
 import andromeda260.Andromeda260;
+import byui.cit260.Andromeda260.exceptions.GameControlException;
 import byui.cit260.Andromeda260.model.Game;
 import byui.cit260.Andromeda260.model.Map;
 import byui.cit260.Andromeda260.model.MaterialResources;
 import byui.cit260.Andromeda260.model.Player;
 import byui.cit260.Andromeda260.model.Resource;
 import byui.cit260.Andromeda260.model.Ship;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 public class GameControl {
 
@@ -95,6 +100,32 @@ public class GameControl {
         }
         iW -= sIL[Resource.coins.ordinal()].getQuantity();
         return iW;
+    }
+
+    public static void saveGame(Game game, String filepath) throws GameControlException {
+        try (FileOutputStream fops = new FileOutputStream(filepath)) {
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            
+            output.writeObject(game); //write the game object out to file
+        }
+        catch(Exception e){
+            throw new GameControlException(e.getMessage());
+        }
+    }
+
+    public static void getSavedGame(String filePath) throws GameControlException {
+        Game game = null;
+        
+        try(FileInputStream fips = new FileInputStream(filePath)){
+            ObjectInputStream input = new ObjectInputStream(fips);
+            
+            game = (Game) input.readObject(); // read the game object from file
+            
+        }
+        catch(Exception e){
+            throw new GameControlException(e.getMessage());
+        }
+        Andromeda260.setGame(game); // save in current running file
     }
     
 }

@@ -20,6 +20,7 @@ public class GameMenuView extends View{
             + "\nS - Scout the Current Location"
             + "\nI - Inventory"
             + "\nU - Upgrade Armor or Weapon"
+            + "\nG - Save Game progress"
             + "\nH - Help Menu"
             + "\nQ - Quit";
     }
@@ -46,13 +47,15 @@ public class GameMenuView extends View{
             case 'U':
                 upgradeArmorOrWeapon();
                 break;
+            case 'G':
+                saveCurrentGame();
             case 'H':
                 helpMenu();
                 break;
             case 'Q':
                 break;
             default:
-                System.out.println("Invalid option");
+                this.console.println("Invalid option");
                 break;
         }
     }
@@ -64,16 +67,16 @@ public class GameMenuView extends View{
     }
 
     private void displayMap(Planet[][] planet) {
-        System.out.println("\nMap of known planets with resources available");
-        System.out.println("\nThe narrow band of space available is due to your ships"
-                + "limited range.");
-        System.out.println(Andromeda260.getGame().getMap().getMapString());
+        this.console.println("\nMap of known planets with resources available");
+        this.console.println("\nThe narrow band of space available is due to your ships"
+                + " limited range.");
+        this.console.println(Andromeda260.getGame().getMap().getMapString());
     }
 
     private void scoutCurrentLocation() {
         Planet currentLocation = ShipControl.getCurrentPlanet();
         if (currentLocation.getVisited() == true){
-            System.out.println("\nYou have already been here");
+            this.console.println("\nYou have already been here");
         } else {
             ScoutingPlanetView scoutingPlanet = new ScoutingPlanetView();
             scoutingPlanet.display();}
@@ -93,20 +96,35 @@ public class GameMenuView extends View{
     private void displayInventory(){
         MaterialResources[] materials = GameControl.getSortedInventoryList();
         
-        System.out.println("\nList of Resources");
+        this.console.println("\nList of Resources");
         
         for (MaterialResources materialResources : materials){
-            System.out.println(materialResources.getDescription() + ",\t"+
+            this.console.println(materialResources.getDescription() + ",\t"+
                                materialResources.getQuantity() + "\t   ");
         }
         int weight = GameControl.getInventoryWeight();
-        System.out.println("\nand they weigh " + weight + " tons.");
+        this.console.println("\nand they weigh " + weight + " tons.");
         double fuelOnHand = ShipControl.fuelAvailable() * 100;
-        System.out.println("\nYou have " + fuelOnHand + "% of a fully charged battery available for your warp drive");
+        this.console.println("\nYou have " + fuelOnHand + "% of a fully charged battery available for your warp drive");
     }
 
     private void leaveLocation() {
         MovementView movementView = new MovementView();
         movementView.display();
+    }
+
+    private void saveCurrentGame() {
+         //prompt for and get the name of the file to save the game in
+        this.console.println("\n\nEnter the file path for file where you wish"
+                + " to save your progress.");
+        String filePath = this.getInput();
+        
+        try {
+            //save the game to the specified file
+            GameControl.saveGame(Andromeda260.getGame(), filePath);
+            this.console.println("\nSave successful");
+        } catch (Exception ex){
+            ErrorView.display(this.getClass().getName(), ex.getMessage());
+        }
     }
 }

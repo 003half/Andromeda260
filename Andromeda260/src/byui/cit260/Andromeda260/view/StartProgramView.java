@@ -42,25 +42,25 @@ public class StartProgramView extends View{
 
     @Override
     public void display() {
-        System.out.println("\n\n*****************************************");
+        this.console.println("\n\n*****************************************");
         
-        System.out.println("*                                       *"
+        this.console.println("*                                       *"
                        + "\n*  This is the game of Andromeda        *"
                        + "\n*  In this game you will travel the     *"
                        + "\n*  stars as captain of the starship     *"
                        + "\n*  Butterfinger.                        *");
         
-        System.out.println("*                                       *"
+        this.console.println("*                                       *"
                         + "\n*  You and your crew will travel to     *"
                         + "\n*  different planets and battle aliens  *"
                         + "\n*  as you try to find a new home for    *"
                         + "\n*  humans.                              *");
         
-        System.out.println("*                                       *"
+        this.console.println("*                                       *"
                         + "\n*  Good luck and may the odds be ever   *"
                         + "\n*  in your favor.                       *");
         
-        System.out.println("*                                       *"
+        this.console.println("*                                       *"
                 + "\n*****************************************");
     }
 
@@ -68,32 +68,36 @@ public class StartProgramView extends View{
     public String getInput() {
         boolean valid = false; // indicates if the name has been retrieved
         String playersName = null;
-        Scanner keyboard = new Scanner(System.in); // keyboard input stream
         
-        while(!valid){ // while a valid name hasnot been retrieved
-            
-            // prompt for the player's name
-            System.out.println("Enter the player's name below:");
-            
-            // get the name from the keyboard and trim off the lanks
-            playersName = keyboard.nextLine();
-            playersName = playersName.trim();
-            
-            // if the name is invalid (less than two character in length)
-            if (playersName.length() < 2){
-                System.out.println("Invalid name - the name must not be blank");
-                continue; // and repeat again
+        try {
+            while(!valid){ // while a valid name hasnot been retrieved
+
+                // prompt for the player's name
+                this.console.println("Enter the player's name below:");
+
+                // get the name from the keyboard and trim off the lanks
+                playersName = this.keyboard.readLine();
+                playersName = playersName.trim();
+
+                // if the name is invalid (less than two character in length)
+                if (playersName.length() < 2){
+                    this.console.println("Invalid name - the name must not be blank");
+                    continue; // and repeat again
+                }
+                break; // out of the (exit) the repetition
             }
-            break; // out of the (exit) the repetition
+        } catch (Exception e){
+            ErrorView.display(this.getClass().getName(), ("Error reading input: " + e.getMessage()));
         }
+        
         return playersName; // return the name
     }
 
     private void displayWelcomeMessage(String playerName) {
-        System.out.println("\n\n====================================");
-        System.out.println("\nWelcome to the game " + playerName);
-        System.out.println("\nWe hope you have a lot of fun!");
-        System.out.println("\n====================================");
+        this.console.println("\n\n====================================");
+        this.console.println("\nWelcome to the game " + playerName);
+        this.console.println("\nWe hope you have a lot of fun!");
+        this.console.println("\n====================================");
         
         //Create MainMenuView object
         MainMenuView mainMenuView = new MainMenuView();

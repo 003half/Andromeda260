@@ -32,20 +32,20 @@ public class UpgradeResources extends View{
             case 'Q':
                 break;
             default:
-                System.out.println("Invalid option");
+                this.console.println("Invalid option");
                 break;
         }
     }
         
     private void upgradeWeapon(){
         //To Be Used! Figured we could use this Class for both Armor and other resources later on
-        System.out.println("\nFor now, you have earned yourself one free upgrade.");
+        this.console.println("\nFor now, you have earned yourself one free upgrade.");
         //This function to be repaired later
     }
 
     private void upgradeArmor() {
        //To Be Used!! Calcualte how to upgrade armor. Use this.getNumberinput().
-        System.out.println("\nOkay, you can have another free upgrade");
+        this.console.println("\nOkay, you can have another free upgrade");
         //This function to be completed later
     }
 

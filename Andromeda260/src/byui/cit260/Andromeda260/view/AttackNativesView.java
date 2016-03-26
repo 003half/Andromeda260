@@ -29,12 +29,12 @@ public class AttackNativesView extends View{
                 attack();
                 break;
             case 'L':
-                System.out.println("\nLoser");
+                this.console.println("\nLoser");
                 break;
              case 'Q':
                 break;
             default:
-                System.out.println("Invalid option");
+                this.console.println("Invalid option");
                 break;
         }
     }
@@ -42,12 +42,12 @@ public class AttackNativesView extends View{
     private void attack() {
         //this function is temporary and uses player input instead of saved data
         //the final program should use saved data instead
-        System.out.println("\nWhat is your attack strength?");//this will eventually be replaced
+        this.console.println("\nWhat is your attack strength?");//this will eventually be replaced
         double shipAttackStength = this.getNumberInput();//this will call the ships saved strength
         if (shipAttackStength >= nativeAttackStrength){
-            System.out.println("\nCongratulations, you beat up the poor defensles natives."
+            this.console.println("\nCongratulations, you beat up the poor defensles natives."
                     + "\nMURDERER!!");
-        } else {System.out.println("\nWuss, you can't even beat up the local with"
+        } else {this.console.println("\nWuss, you can't even beat up the local with"
                 + "\nall your advanced weaponry.");}
     }
     
