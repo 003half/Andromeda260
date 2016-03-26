@@ -49,6 +49,7 @@ public class GameMenuView extends View{
                 break;
             case 'G':
                 saveCurrentGame();
+                break;
             case 'H':
                 helpMenu();
                 break;
@@ -121,7 +122,7 @@ public class GameMenuView extends View{
         
         try {
             //save the game to the specified file
-            GameControl.saveGame(Andromeda260.getGame(), filePath);
+            GameControl.saveGame(Andromeda260.getGame(),Andromeda260.getPlayer() , filePath);
             this.console.println("\nSave successful");
         } catch (Exception ex){
             ErrorView.display(this.getClass().getName(), ex.getMessage());

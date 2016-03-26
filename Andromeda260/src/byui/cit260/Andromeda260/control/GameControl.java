@@ -102,11 +102,12 @@ public class GameControl {
         return iW;
     }
 
-    public static void saveGame(Game game, String filepath) throws GameControlException {
+    public static void saveGame(Game game, Player player, String filepath) throws GameControlException {
         try (FileOutputStream fops = new FileOutputStream(filepath)) {
             ObjectOutputStream output = new ObjectOutputStream(fops);
             
             output.writeObject(game); //write the game object out to file
+            output.writeObject(player); //write the player object to file
         }
         catch(Exception e){
             throw new GameControlException(e.getMessage());
@@ -115,17 +116,20 @@ public class GameControl {
 
     public static void getSavedGame(String filePath) throws GameControlException {
         Game game = null;
+        Player player = null;
         
         try(FileInputStream fips = new FileInputStream(filePath)){
             ObjectInputStream input = new ObjectInputStream(fips);
             
             game = (Game) input.readObject(); // read the game object from file
+            player = (Player) input.readObject(); //read the player object from file
             
         }
         catch(Exception e){
             throw new GameControlException(e.getMessage());
         }
         Andromeda260.setGame(game); // save in current running file
+        Andromeda260.setPlayer(player); //save in current running file
     }
     
 }

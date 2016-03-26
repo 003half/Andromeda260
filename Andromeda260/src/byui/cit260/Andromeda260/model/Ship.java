@@ -32,7 +32,7 @@ public class Ship implements Serializable{
         this.shipIntegrity = 1;
         this.armor = 1;
         this.weapons = 1;
-        this.fuel = 10;
+        this.fuel = 1;
     }
     
     public String getShipName() {

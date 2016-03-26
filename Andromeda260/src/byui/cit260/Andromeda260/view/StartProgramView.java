@@ -98,11 +98,12 @@ public class StartProgramView extends View{
         this.console.println("\nWelcome to the game " + playerName);
         this.console.println("\nWe hope you have a lot of fun!");
         this.console.println("\n====================================");
-        
+        /*Duplicate lines causing me to have to quit several views
         //Create MainMenuView object
         MainMenuView mainMenuView = new MainMenuView();
         
         //Display the main menu view
         mainMenuView.display();
+        */
     }
 }
