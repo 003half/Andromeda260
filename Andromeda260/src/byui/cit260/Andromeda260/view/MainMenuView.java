@@ -50,7 +50,7 @@ public class MainMenuView extends View {
         //prompt for and get the name of the file where saved
         this.console.println("\n\nEnter the file path for the saved game.");
         
-        String filePath = this.getInput();
+        String filePath = this.getFileName();
         
         try {
             //start a saved game

@@ -20,6 +20,7 @@ public class GameMenuView extends View{
             + "\nS - Scout the Current Location"
             + "\nI - Inventory"
             + "\nU - Upgrade Armor or Weapon"
+            + "\nR - Save reports"
             + "\nG - Save Game progress"
             + "\nH - Help Menu"
             + "\nQ - Quit";
@@ -46,6 +47,9 @@ public class GameMenuView extends View{
                 break;
             case 'U':
                 upgradeArmorOrWeapon();
+                break;
+            case 'R':
+                printReport();
                 break;
             case 'G':
                 saveCurrentGame();
@@ -118,7 +122,7 @@ public class GameMenuView extends View{
          //prompt for and get the name of the file to save the game in
         this.console.println("\n\nEnter the file path for file where you wish"
                 + " to save your progress.");
-        String filePath = this.getInput();
+        String filePath = this.getFileName();
         
         try {
             //save the game to the specified file
@@ -127,5 +131,10 @@ public class GameMenuView extends View{
         } catch (Exception ex){
             ErrorView.display(this.getClass().getName(), ex.getMessage());
         }
+    }
+
+    private void printReport() {
+        ReportMenuView reportMenu = new ReportMenuView();
+        reportMenu.display();
     }
 }

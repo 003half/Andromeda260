@@ -8,6 +8,7 @@ public interface ViewInterface {
     
     public void display();
     public String getInput();
+    public String getFileName();
     public Double getNumberInput();
     public void doAction(char selection);
     

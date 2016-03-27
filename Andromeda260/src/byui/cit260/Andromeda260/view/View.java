@@ -53,6 +53,28 @@ public abstract class View implements ViewInterface {
         return input.toUpperCase();
     }
     
+        public String getFileName() {
+        String input = null;
+        boolean isValid = false;
+        
+        try {
+            while (!isValid){
+                input = this.keyboard.readLine();
+                input = input.trim();
+
+                if (input == null || input.length() == 0) {
+                    ErrorView.display(this.getClass().getName(), "Invalid input");
+                }   else {
+                     isValid = true;
+                    }
+            }
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(),
+                    "Error reading input: " + e.getMessage());
+        }
+        return input;
+    }
+    
     public Double getNumberInput() {
         boolean valid = false;
         String selection = null;
