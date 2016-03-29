@@ -8,6 +8,7 @@ import byui.cit260.Andromeda260.exceptions.GameControlException;
 import byui.cit260.Andromeda260.model.Game;
 import byui.cit260.Andromeda260.model.Map;
 import byui.cit260.Andromeda260.model.MaterialResources;
+import byui.cit260.Andromeda260.model.Planet;
 import byui.cit260.Andromeda260.model.Player;
 import byui.cit260.Andromeda260.model.Resource;
 import byui.cit260.Andromeda260.model.Ship;
@@ -101,6 +102,20 @@ public class GameControl {
         iW -= sIL[Resource.coins.ordinal()].getQuantity();
         return iW;
     }
+    
+    public static int getCoinsValue() {
+        MaterialResources[] sIL = Andromeda260.getGame().getMaterialResources();
+        int coins = sIL[Resource.coins.ordinal()].getQuantity();
+        return coins;
+    }
+    
+    public static void addCoins(int coins2add) {
+        int old = getCoinsValue();
+        old += coins2add;
+        MaterialResources[] sIL = Andromeda260.getGame().getMaterialResources();
+        sIL[Resource.coins.ordinal()].setQuantity(old);
+        Andromeda260.getGame().setMaterialResources(sIL);
+    }
 
     public static void saveGame(Game game, Player player, String filepath) throws GameControlException {
         try (FileOutputStream fops = new FileOutputStream(filepath)) {
@@ -130,6 +145,14 @@ public class GameControl {
         }
         Andromeda260.setGame(game); // save in current running file
         Andromeda260.setPlayer(player); //save in current running file
+    }
+
+    public static void addRandomCredits() {
+        Planet currentLocation = ShipControl.getCurrentPlanet();
+        int bonus = currentLocation.getRow() * 100;
+        bonus += currentLocation.getColumn() * 10 + 1000;
+        bonus *= Math.random();
+        addCoins(bonus);
     }
     
 }

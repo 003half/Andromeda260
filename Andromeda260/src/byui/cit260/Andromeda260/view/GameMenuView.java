@@ -84,7 +84,9 @@ public class GameMenuView extends View{
             this.console.println("\nYou have already been here");
         } else {
             ScoutingPlanetView scoutingPlanet = new ScoutingPlanetView();
-            scoutingPlanet.display();}
+            scoutingPlanet.display();
+            RewardView rewardView = new RewardView();
+            rewardView.display();}
     }
     
     private void helpMenu() {
