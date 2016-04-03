@@ -70,7 +70,7 @@ public class RewardView extends View {
     }
 
     private void getResource() {
-        
+        GameControl.addRandomResource();
     }
     
     

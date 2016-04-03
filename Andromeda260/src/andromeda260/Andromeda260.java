@@ -10,6 +10,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
@@ -25,6 +26,8 @@ public class Andromeda260 {
     private static BufferedReader inFile = null;
     
     private static PrintWriter logFile = null;
+    
+    private static Random generator = new Random();
 
     public static void setGame(Game game) {
         Andromeda260.game = game;
@@ -60,6 +63,14 @@ public class Andromeda260 {
 
     public static PrintWriter getLogFile() {
         return logFile;
+    }
+
+    public static Random getGenerator() {
+        return generator;
+    }
+
+    public static void setGenerator(Random generator) {
+        Andromeda260.generator = generator;
     }
 
     public static void setLogFile(PrintWriter logFile) {

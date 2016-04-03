@@ -116,6 +116,13 @@ public class GameControl {
         sIL[Resource.coins.ordinal()].setQuantity(old);
         Andromeda260.getGame().setMaterialResources(sIL);
     }
+    
+    public static void addResource(int item) {
+        MaterialResources[] sIL = Andromeda260.getGame().getMaterialResources();
+        int old = sIL[item].getQuantity() + 1;
+        sIL[item].setQuantity(old);
+        Andromeda260.getGame().setMaterialResources(sIL);
+    }
 
     public static void saveGame(Game game, Player player, String filepath) throws GameControlException {
         try (FileOutputStream fops = new FileOutputStream(filepath)) {
@@ -153,6 +160,11 @@ public class GameControl {
         bonus += currentLocation.getColumn() * 10 + 1000;
         bonus *= Math.random();
         addCoins(bonus);
+    }
+    
+    public static void addRandomResource() {
+        int i = Andromeda260.getGenerator().nextInt(3);
+        addResource(i);
     }
     
 }

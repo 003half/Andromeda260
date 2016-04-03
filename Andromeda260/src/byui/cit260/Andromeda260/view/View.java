@@ -3,6 +3,7 @@ package byui.cit260.Andromeda260.view;
 import andromeda260.Andromeda260;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -15,6 +16,7 @@ public abstract class View implements ViewInterface {
     
     protected final BufferedReader keyboard = Andromeda260.getInFile();
     protected final PrintWriter console = Andromeda260.getOutFile();
+    protected final Random generator = Andromeda260.getGenerator();
     
      public void display() {
         
